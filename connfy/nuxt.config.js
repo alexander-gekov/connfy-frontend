@@ -7,7 +7,12 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel:"stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap",
+      }],
+
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -25,8 +30,16 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome',
   ],
 
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
+
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
