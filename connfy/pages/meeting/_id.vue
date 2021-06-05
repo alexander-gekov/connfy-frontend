@@ -76,8 +76,16 @@
         <div class="text-red-500">Declined</div>
       </div>
     </div>
-    <div class="bg-gray-200 h-48 mt-5">Map (TO DO)</div>
-    <div class="bg-gray-200 h-32 mt-5">Weather (TO DO)</div>
+    <div id="map-wrap" style="height: 200px">
+      <no-ssr>
+        <l-map :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
+          <l-tile-layer
+            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          ></l-tile-layer>
+        </l-map>
+      </no-ssr>
+    </div>
+    <weather lat="51.411164486772115" lon="5.457615316908337" />
   </div>
 </template>
 
