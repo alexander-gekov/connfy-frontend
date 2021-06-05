@@ -28,18 +28,10 @@
 
       <span class="py-2 underline"> Participants: </span>
       <div class="flex flex-row">
-        <img
-          class="object-cover h-8 w-8 rounded-full border border-yellow-400"
-          src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI"
-        />
-        <img
-          class="object-cover h-8 w-8 rounded-full border border-yellow-400"
-          src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI"
-        />
-        <img
-          class="object-cover h-8 w-8 rounded-full border border-yellow-400"
-          src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI"
-        />
+        <participant-circle/>
+        <participant-circle/>
+        <participant-circle/>
+
       </div>
     </div>
 
@@ -56,10 +48,11 @@
 
 <script>
 import topicTile from '@/components/topicTile'
+import participantCircle from '@/components/participantCircle'
 
 export default {
   name: 'MeetingChannel.vue',
-  components: { topicTile },
+  components: { topicTile, participantCircle },
   data() {
     return {
       topicName: 'Vacation',
