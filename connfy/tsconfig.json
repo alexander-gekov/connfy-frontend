@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
+    "strictPropertyInitialization": false,
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
@@ -26,7 +27,8 @@
     "types": [
       "@nuxt/types",
       "@nuxtjs/axios",
-      "@types/node"
+      "@types/node",
+      "nuxt-leaflet"
     ]
   },
   "exclude": [

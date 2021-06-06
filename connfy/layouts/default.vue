@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Nuxt />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <Title class="py-5" />
+    <Nuxt class="bg-gray-100 p-5 h-screen font-montserrat mx-auto" />
   </div>
 </template>
 
