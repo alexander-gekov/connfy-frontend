@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import openMeetingCard from '@/components/openMeetingCard'
+import openMeetingCard from '@/components/OpenMeetingCard'
 export default {
 name: "open-meetings.vue",
   components: {openMeetingCard}

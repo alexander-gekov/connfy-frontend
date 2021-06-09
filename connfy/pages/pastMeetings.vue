@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="md:w-1/2">
     <div class="flex justify-center">
     <no-ssr>
       <v-calendar is-expanded :attributes="attributes" @dayclick="onDayClick" />
@@ -8,46 +8,125 @@
 
     <div class="mt-3 bg-white rounded-xl shadow-lg" v-bind:class="{ hidden: isHidden}">
       <h3 class="text-xl font-light mx-5 py-2">{{date}}</h3>
-      <MeetingCard class="mx-3"/>
+      <div class="mx-5">
+      <div class="flex justify-between">
+        <h1 class="text-xl font-bold font-montserrat">
+          Brainstorm meeting
+        </h1>
+      </div>
+      <div class="flex">
+        <span class="text-light">10:00 - 11:00</span>
+      </div>
+      <div class="flex justify-between items-baseline m-2 pb-2">
+        <div class="attendees flex self-end">
+
+          <circle-image
+            class="-ml-3"
+            imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
+          />
+          <circle-image
+            class="-ml-3"
+            imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
+          />
+          <circle-image
+            class="-ml-3"
+            imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
+          />
+        </div>
+        <nuxt-link
+          to="/meeting/1"
+          class="
+          bg-orange-light
+          transform
+          transition
+          duration-200
+          ease-in
+          hover:scale-110
+          text-white
+          px-4
+          py-2
+          rounded-full
+          focus:outline-none
+        "
+        >
+          Details ⏭
+        </nuxt-link>
+      </div>
+      </div>
     </div>
 
     <h3 class="text-lg font-bold p-3">My groups:</h3>
 
-    <div class="rounded-xl bg-blue-300 shadow-lg p-3 mb-4">
-      <h3 class="text-lg pb-2">Staff meeting</h3>
-      <div class="flex flex-row">
-        <participant-circle />
-        <participant-circle />
-        <participant-circle />
+    <nuxt-link to="/meetingChannel/1"><div class="rounded-xl bg-blue-300 shadow-lg p-3 mb-4">
+      <h3 class="text-lg">Staff meeting</h3>
+      <div class="attendees flex self-end">
+        <circle-image
+          imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
+        />
       </div>
-    </div>
+    </div></nuxt-link>
 
-    <div class="rounded-xl bg-yellow-300 shadow-lg p-3 mb-4">
-      <h3 class="text-lg pb-2">Team meeting</h3>
-      <div class="flex flex-row">
-        <participant-circle />
-        <participant-circle />
-        <participant-circle />
+      <nuxt-link to="/meetingChannel/1"><div class="rounded-xl bg-yellow-300 shadow-lg p-3 mb-4">
+      <h3 class="text-lg">Team meeting</h3>
+      <div class="attendees flex self-end">
+        <circle-image
+          imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
+        />
       </div>
-    </div>
+      </div></nuxt-link>
 
-    <div class="rounded-xl bg-blue-200 shadow-lg p-3 mb-4">
-      <h3 class="text-lg pb-2">Group meeting</h3>
-      <div class="flex flex-row">
-        <participant-circle />
-        <participant-circle />
-        <participant-circle />
+        <nuxt-link to="/meetingChannel/1"><div class="rounded-xl bg-blue-200 shadow-lg p-3 mb-4">
+      <h3 class="text-lg">Group meeting</h3>
+      <div class="attendees flex self-end">
+        <circle-image
+          imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
+        />
+        <circle-image
+          class="-ml-3"
+          imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
+        />
       </div>
-    </div>
+        </div></nuxt-link>
   </div>
 </template>
 
 <script>
-import participantCircle from '@/components/participantCircle'
-import MeetingCard from '@/components/MeetingCard'
+import CircleImage from '@/components/CircleImage'
 export default {
   name: 'pastMeetings.vue',
-  components: { participantCircle, MeetingCard },
+  components: { CircleImage },
   data() {
     return {
       date: "",
