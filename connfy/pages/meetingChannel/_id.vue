@@ -72,8 +72,5 @@ export default {
 </script>
 
 <style scoped>
-.square {
-  width: 28vw;
-  height: 28vw;
-}
+
 </style>

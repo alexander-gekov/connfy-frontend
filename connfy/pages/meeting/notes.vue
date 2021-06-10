@@ -1,0 +1,114 @@
+<template>
+  <div class="md:w-1/2">
+    <div class="flex flex-row">
+      <div class="h-24 w-24 mt-10">
+        <circle-image
+          imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
+        />
+      </div>
+
+      <div style="overscroll-behavior: none">
+        <div class="mt-2 mb-16">
+          <div class="clearfix">
+            <div
+              class="
+                bg-blue-light
+                rounded-xl rounded-tl-3xl rounded-bl-none
+                mx-4
+                my-2
+                p-3
+              "
+            >
+              {{ message }}
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <div
+              class="
+                bg-gray-300
+                mx-4
+                my-2
+                p-3
+                rounded-xl rounded-tl-none
+                clearfix
+              "
+            >
+              It will be used for a full tutorial about building a chat app with
+              vue, tailwind and firebase.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fixed flex justify-between" style="bottom: 0px">
+
+      <textarea
+        class="
+          flex-grow
+          m-2
+          py-2
+          px-6
+          pr-8
+          mr-3
+          rounded-full
+          border border-gray-300
+          bg-gray-200
+          resize-none
+        "
+        rows="1"
+        placeholder="Message..."
+        style="outline: none"
+      ></textarea>
+      <button class="m-2" style="outline: none">
+        <svg
+          class="svg-inline--fa text-blue fa-paper-plane w-5 h-5 mr-3"
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="paper-plane"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="currentColor"
+            d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"
+          />
+        </svg>
+      </button>
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="svg-inline--fa text-blue fa-paper-plane w-6 h-6 mr-2"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</template>
+
+<script>
+import CircleImage from '@/components/CircleImage'
+export default {
+  name: 'notes.vue',
+  components: {
+    CircleImage,
+  },
+  data () {
+    return {
+      message: 'This is a basic mobile chat layout, build with tailwind css'
+    }
+  }
+}
+</script>
+
+<style scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="md:w-1/2">
     <h3 class="text-xl pb-1"><font-awesome-icon :icon="['far', 'map']"/>  Tech campus</h3>
     <open-meeting-card></open-meeting-card>
     <open-meeting-card></open-meeting-card>
