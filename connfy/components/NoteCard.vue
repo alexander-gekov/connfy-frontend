@@ -4,15 +4,10 @@
       <h2 class="text-lg text-white">11 May</h2>
       <div class="flex flex-row pt-1">
 
-        <img
-          class="object-cover h-5 w-5"
-          src="../assets/bookmark.png"
-        />
 
-        <img
-          class="object-cover h-5 w-5 ml-2"
-          src="../assets/edit.png"
-        />
+        <CategoriesModal/>
+        <button class="" type="button"><font-awesome-icon :icon="['far', 'edit']"/></button>
+
       </div>
     </div>
     <h3 class="text-left m-auto font-light text-sm px-3 py-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mauris erat, fermentum quis scelerisque </h3>
@@ -21,8 +16,18 @@
 </template>
 
 <script>
+import CategoriesModal from '@/components/modals/CategoriesModal'
 export default {
-name: "noteCard.vue"
+name: "noteCard.vue",
+  components: {
+    CategoriesModal
+  },
+  data () {
+    return {
+    }
+  },
+  methods: {
+  }
 }
 </script>
 
