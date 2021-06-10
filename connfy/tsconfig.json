@@ -13,7 +13,6 @@
     "sourceMap": true,
     "strictPropertyInitialization": false,
     "strict": true,
-    "noEmit": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {

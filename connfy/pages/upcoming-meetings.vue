@@ -1,10 +1,12 @@
 <template>
-  <div class="max-w-4xl mx-auto">
-    <div class="font-bold text-2xl mb-5">Upcoming Meetings</div>
+<div>
+  <Title class="py-3" pageTitle="Upcoming meetings" />
+  <div class="max-w-4xl mx-auto px-5">
     <meeting-card class="mb-5" />
     <meeting-card class="mb-5" />
     <meeting-card class="mb-5" />
   </div>
+</div>
 </template>
 
 <script lang="ts">
