@@ -19,11 +19,11 @@
                 p-3
               "
             >
-              {{ message }}
+              Start typing your private notes for the meeting here.
             </div>
           </div>
 
-          <div class="clearfix">
+          <div class="clearfix"  v-for="note in notes" :key="note.id">
             <div
               class="
                 bg-gray-300
@@ -34,10 +34,11 @@
                 clearfix
               "
             >
-              It will be used for a full tutorial about building a chat app with
-              vue, tailwind and firebase.
+              {{ note.message}}
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -57,11 +58,12 @@
           bg-gray-200
           resize-none
         "
+        v-model="message"
         rows="1"
         placeholder="Message..."
         style="outline: none"
       ></textarea>
-      <button class="m-2" style="outline: none">
+      <button class="p-2" style="outline: none" v-on:click="sendMessage">
         <svg
           class="svg-inline--fa text-blue fa-paper-plane w-5 h-5 mr-3"
           aria-hidden="true"
@@ -105,8 +107,25 @@ export default {
   },
   data () {
     return {
-      message: 'This is a basic mobile chat layout, build with tailwind css'
+      message: '',
+      notes: [
+        {
+          id: 0,
+          message: 'This is a basic mobile chat layout, build with tailwind css'
+        },
+        {
+          id: 1,
+          message: 'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.'}],
     }
+  },
+  methods: {
+    sendMessage() {
+      if (this.message != "") {
+        let msg = { id:11, message: this.message}
+        this.notes.push(msg)
+      }
+    }
+
   }
 }
 </script>
