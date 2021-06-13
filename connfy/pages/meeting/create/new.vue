@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col items-center max-w-4xl mx-auto">
     <formulate-form @submit="submitData" v-model="formData">
       <formulate-input
         type="text"
@@ -26,7 +26,7 @@
         placeholder="Rachelsmolen 1, Eindhoven"
       />
     </formulate-form>
-    <div class="flex justify-between mt-10">
+    <div class="flex flex-col justify-center mt-10">
       <button
         class="
           bg-white
@@ -39,6 +39,7 @@
           px-4
           py-2
           shadow-lg
+          m-3
         "
       >
         Generate Route
@@ -57,10 +58,10 @@
           shadow-lg
           text-white
           focus:outline-none
-          mr-5
+          m-3
         "
       >
-        Private Notes
+        Create meeting
       </button>
     </div>
   </div>
