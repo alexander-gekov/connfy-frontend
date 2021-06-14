@@ -13,8 +13,8 @@
 
 <style>
 html {
-  font-family: 'Montserrat', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', 'Source Sans Pro', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -64,11 +64,11 @@ html {
   padding: 10px;
 }
 
-.primaryColor{
-  color: #63AED9;
+.primaryColor {
+  color: #63aed9;
 }
-.accentColor{
-  color: #E79F37;
+.accentColor {
+  color: #e79f37;
 }
 darkColor {
   color: #414042;
