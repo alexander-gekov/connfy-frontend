@@ -63,7 +63,7 @@ export default {
       })
   },
   computed: {
-    icon(): String {
+    icon(): any {
       return this.weather.weather[0].icon
     },
   },

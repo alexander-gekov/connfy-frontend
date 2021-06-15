@@ -5,6 +5,7 @@
       <h1 class="title">connfy</h1>
       <div class="links">
         <nuxt-link to="/upcoming-meetings">Upcoming meetings</nuxt-link>
+        <nuxt-link to="/meeting/create">Add new meeting</nuxt-link>
       </div>
     </div>
   </div>
@@ -12,7 +13,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 
 export default Vue.extend({})
 </script>
