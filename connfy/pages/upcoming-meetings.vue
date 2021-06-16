@@ -15,6 +15,11 @@ import MeetingCard from '~/components/MeetingCard.vue'
 
 export default Vue.extend({
   components: { MeetingCard },
+  computed: {
+    getPreviousPage () {
+      return this.$store.state.previousPage
+    }
+  },
   data() {
     return {
       meetings: [],

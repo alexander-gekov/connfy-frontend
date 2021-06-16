@@ -60,7 +60,13 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'Connfy',
+      short_name: 'Connfy',
       lang: 'en',
+      display: 'standalone',
+      icons: [],
+    },
+    workbox: {
     },
   },
 

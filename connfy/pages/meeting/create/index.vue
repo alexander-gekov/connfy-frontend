@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Past meetings" />
   <div class="flex flex-col items-center max-w-4xl mx-auto">
     <nuxt-link
       to="/meeting/create/new"
@@ -71,6 +73,7 @@
       Brainstorm Meeting
     </button>
   </div>
+</div>
 </template>
 
 <script lang="ts">

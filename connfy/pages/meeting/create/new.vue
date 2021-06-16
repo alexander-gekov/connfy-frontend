@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Create meeting" />
   <div class="flex flex-col items-center max-w-4xl mx-auto">
     <formulate-form @submit="submitData" v-model="formData">
       <formulate-input
@@ -65,6 +67,7 @@
       </button>
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">

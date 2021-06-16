@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Past meetings" />
   <div class="md:w-1/2">
     <div class="flex justify-center">
     <no-ssr>
@@ -120,6 +122,7 @@
       </div>
         </div></nuxt-link>
   </div>
+</div>
 </template>
 
 <script>

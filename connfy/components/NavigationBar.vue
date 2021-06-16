@@ -20,5 +20,8 @@
 
 <script>
 export default {
+  props: {
+    previousPage: {type: String}
+  }
 }
 </script>
