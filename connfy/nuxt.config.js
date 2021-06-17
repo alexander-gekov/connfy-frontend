@@ -7,20 +7,22 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
-        rel:"stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap",
-      }],
-
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/css/formulate.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-  { src: '~plugins/v-calendar', ssr: false }
+    { src: '~plugins/v-calendar', ssr: false },
+    { src: '~plugins/vue-formulate', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,13 +42,14 @@ export default {
     icons: {
       solid: true,
       brands: true,
-      regular: true
-    }
+      regular: true,
+    },
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/onesignal',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-leaflet',
@@ -55,10 +58,25 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
+  oneSignal: {
+    init: {
+      appId: 'YOUR_APP_ID',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+          disable: true
+      }
+    }
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'Connfy',
+      short_name: 'Connfy',
       lang: 'en',
+      display: 'standalone',
+    },
+    workbox: {
     },
   },
 

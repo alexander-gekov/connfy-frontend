@@ -31,7 +31,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import axios from 'axios'
 export default {
   data() {
@@ -63,16 +63,16 @@ export default {
       })
   },
   computed: {
-    icon(): String {
+    icon() {
       return this.weather.weather[0].icon
     },
   },
   props: {
     lat: {
-      type: String,
+      type: string,
     },
     lon: {
-      type: String,
+      type: string,
     },
   },
 }
