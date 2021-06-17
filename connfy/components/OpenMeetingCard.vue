@@ -11,7 +11,7 @@
     </div>
 
     <div class="p-4 pt-2">
-      <h2 class="text-lg font-bold">Title of meeting</h2>
+      <h2 class="text-xl font-light">Title of meeting</h2>
       <div class="flex flex-row justify-between">
         <div class="flex flex-col">
           <h3><font-awesome-icon :icon="['far', 'clock']" /> 30 min</h3>

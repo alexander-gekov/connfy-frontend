@@ -1,6 +1,8 @@
 <template>
-  <div class="m-1 flex justify-center align-items-center rounded-xl bg-red-200 shadow-md square">
-    <h3 class="text-center m-auto ">{{ name }}</h3>
+  <div class="mx-2 flex flex-col rounded-xl bg-white shadow-md p-2 ">
+    <img class="text-center m-auto" src="../assets/notes.png">
+    <h3 class="text-center m-auto font-semibold">{{ name }}</h3>
+    <h3 class="text-center m-auto font-light">{{ notes }} notes</h3>
   </div>
 </template>
 
@@ -10,6 +12,9 @@ name: "topicTile.vue",
   props: {
     name: {
       type: String
+    },
+    notes: {
+      type: Number
     }
   },
 }
