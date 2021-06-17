@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="fixed flex justify-between" style="bottom: 0px">
+    <div class="fixed flex justify-between p-2 pb-0" style="bottom: 0px; right: 0px; left:0px;">
 
       <textarea
         class="
@@ -65,7 +65,7 @@
       ></textarea>
       <button class="p-2" style="outline: none" v-on:click="sendMessage">
         <svg
-          class="svg-inline--fa text-blue fa-paper-plane w-5 h-5 mr-3"
+          class="svg-inline--fa text-blue fa-paper-plane w-6 h-6 mr-2"
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
@@ -83,7 +83,7 @@
       <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="svg-inline--fa text-blue fa-paper-plane w-6 h-6 mr-2"
+          class="svg-inline--fa text-blue fa-paper-plane w-7 h-7 mr-2"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
