@@ -1,16 +1,21 @@
 <template>
-  <div class="container md:w-1/2">
+  <div class="container flex flex-col md:w-1/2">
     <div class="flex flex-row justify-between m-5">
       <h2>Topics:</h2>
       <h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2>
     </div>
-
     <div class="flex flex-row justify-center">
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"
+        ><topic-tile :name="topicName"></topic-tile
+      ></nuxt-link>
 
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"
+        ><topic-tile :name="topicName"></topic-tile
+      ></nuxt-link>
 
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"
+        ><topic-tile :name="topicName"></topic-tile
+      ></nuxt-link>
     </div>
 
     <div class="flex flex-row justify-between m-5">
@@ -27,7 +32,7 @@
       <h1>Set dates to move tech devices.</h1>
 
       <span class="py-2 underline"> Participants: </span>
-      <div class="attendees flex ">
+      <div class="attendees flex">
         <circle-image
           imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
         />
@@ -46,7 +51,9 @@
       </div>
     </div>
 
-    <div class="flex flex-row justify-center items-baseline m-auto mt-16 lg:mt-2">
+    <div
+      class="flex flex-row justify-center items-baseline m-auto mt-16 lg:mt-2"
+    >
       <button class="rounded-full shadow-md bg-yellow-500 p-4 mx-3">
         Personal notes
       </button>
