@@ -3,9 +3,13 @@
     <div>
       <Logo />
       <h1 class="title">connfy</h1>
-      <div class="links">
+      <div class="flex flex-col links">
         <nuxt-link to="/upcoming-meetings">Upcoming meetings</nuxt-link>
         <nuxt-link to="/meeting/create">Add new meeting</nuxt-link>
+        <nuxt-link to="/open-meetings">Open meetings</nuxt-link>
+        <nuxt-link to="/pastMeetings">Past meetings</nuxt-link>
+        <nuxt-link to="/topic/1">Topic 1</nuxt-link>
+        <nuxt-link to="/meetingChannel/1">Meeting channel 1</nuxt-link>
       </div>
     </div>
   </div>
