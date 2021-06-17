@@ -6,7 +6,7 @@
       rel="stylesheet"
     />
     <Title class="py-5" />
-    <Nuxt class="bg-gray-100 p-5 h-screen font-montserrat mx-auto" />
+    <Nuxt class="bg-gray-100 p-5 h-screen font-montserrat mx-auto mb-20" />
     <NavigationBar class="footer fixed w-full bottom-0 left-0 z-10 bg-white" />
   </div>
 </template>

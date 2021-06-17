@@ -1,0 +1,34 @@
+[{
+    "title": "Brainstorm meeting",
+    "description": "In this meeting we have to brainstorm ideas about Connfy",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Viktor Naydenov",
+        "picture": "https://randomuser.me/api/portraits/men/64.jpg",
+        "email": "viktor.naydneov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "route": {
+      "title": "",
+      "length": "",
+      "duration": "",
+      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
+        {"lng":"5.2341536","lat":"40.21323556"},
+        {"lng":"5.23423423","lat":"40.2131241"}]
+    },
+    "notes": "Object"
+}
+]
