@@ -2,6 +2,11 @@
   "name": "connfy",
   "version": "1.0.0",
   "private": true,
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "8080"
+    },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -20,7 +25,10 @@
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
     "nuxt-leaflet": "0.0.25",
-    "v-calendar": "^2.3.0"
+    "v-calendar": "^2.3.0",
+    "vue-browser-geolocation": "^1.8.0",
+    "vue-geolocation-api": "^0.1.21",
+    "vue-tour": "^2.0.0"
   },
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.15.3",

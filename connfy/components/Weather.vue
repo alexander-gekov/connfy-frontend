@@ -67,14 +67,7 @@ export default {
       return this.weather.weather[0].icon
     },
   },
-  props: {
-    lat: {
-      type: string,
-    },
-    lon: {
-      type: string,
-    },
-  },
+  props: ['lat', 'lon'],
 }
 </script>
 

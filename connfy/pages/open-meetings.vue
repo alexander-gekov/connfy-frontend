@@ -1,7 +1,7 @@
 <template>
   <div>
     <Title class="py-3" pageTitle="Open meetings" />
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto px-5">
       <h3 class="text-xl pb-1">
         <font-awesome-icon :icon="['far', 'map']" /> Tech campus
       </h3>
@@ -10,7 +10,7 @@
       <h3 class="text-xl pb-1">
         <font-awesome-icon :icon="['far', 'map']" /> Fontys
       </h3>
-      <open-meeting-card class="pb-20"></open-meeting-card>
+      <open-meeting-card></open-meeting-card>
     </div>
   </div>
 </template>

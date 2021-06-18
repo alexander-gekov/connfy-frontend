@@ -6,7 +6,8 @@
       rel="stylesheet"
     />
     <Nuxt class="bg-gray-100 h-screen font-montserrat mx-auto mb-24" />
-    <NavigationBar class="footer fixed w-full bottom-0 left-0 z-30 bg-white" />
+    <!-- <NavigationBar class="footer fixed w-full bottom-0 left-0 z-10 bg-white" /> -->
+    
   </div>
 </template>
 

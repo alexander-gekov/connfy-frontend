@@ -19,8 +19,12 @@
     <div class="flex">
       <span class="text-white text-light">10:00 - 11:00</span>
     </div>
-    <div class="flex justify-between items-baseline mt-5">
-      <div class="attendees flex self-end">
+    <div class="flex flex-col">
+      <span class="text-white">2.5 km</span>
+      <span class="text-white">Rachelsmolen 1</span>
+    </div>
+    <div class="flex justify-between items-baseline mt-3">
+      <div class="attendees flex self-center items-center">
         <circle-image
           imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
         />
@@ -36,6 +40,7 @@
           class="-ml-3"
           imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
         />
+        <span class="text-white text-sm ml-2">+ 2 more</span>
       </div>
       <nuxt-link
         to="/meeting/1"

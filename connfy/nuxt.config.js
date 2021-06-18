@@ -23,6 +23,8 @@ export default {
   plugins: [
     { src: '~plugins/v-calendar', ssr: false },
     { src: '~plugins/vue-formulate', ssr: false },
+    { src: '~plugins/vue-tour', ssr: false },
+    { src: '~plugins/vue-geolocation', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,19 +55,30 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-leaflet',
+    'vue-geolocation-api/nuxt',
   ],
+
+  geolocation: {
+    watch: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  server: {
+    port: 8080, // default: 3000
+    host: '0.0.0.0' // default: localhost
+    }
+   }
 
   oneSignal: {
     init: {
       appId: 'YOUR_APP_ID',
       allowLocalhostAsSecureOrigin: true,
       welcomeNotification: {
-          disable: true
-      }
-    }
+        disable: true,
+      },
+    },
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -76,8 +89,7 @@ export default {
       lang: 'en',
       display: 'standalone',
     },
-    workbox: {
-    },
+    workbox: {},
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
