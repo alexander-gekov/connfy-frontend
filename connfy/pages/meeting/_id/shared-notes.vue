@@ -38,6 +38,7 @@
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              @click="speak(note.message)"
             >
               <path
                 stroke-linecap="round"
@@ -213,6 +214,30 @@ export default {
         })
     }
   },
+  mounted() {
+    if (process.browser) {
+      this.greetingSpeech = new window.SpeechSynthesisUtterance()
+      this.synth = window.speechSynthesis
+    }
+
+    this.voiceList = this.synth.getVoices()
+    console.log(this.voiceList)
+
+    if (this.voiceList.length) {
+      this.isLoading = false
+    }
+
+    this.synth.onvoiceschanged = () => {
+      this.voiceList = this.synth.getVoices()
+      // give a bit of delay to show loading screen
+      // just for the sake of it, I suppose. Not the best reason
+      setTimeout(() => {
+        this.isLoading = false
+      }, 800)
+    }
+
+    this.listenForSpeechEvents()
+  },
   data() {
     return {
       message: '',
@@ -233,6 +258,11 @@ export default {
       runtimeTranscription_: '',
       transcription_: [],
       lang_: 'en-EN',
+      isLoading: true,
+      selectedVoice: 1,
+      synth: '',
+      voiceList: [],
+      greetingSpeech: '',
     }
   },
   methods: {
@@ -269,6 +299,33 @@ export default {
         this.isRecording = false
       })
       recognition.start()
+    },
+    /**
+     * React to speech events
+     */
+    listenForSpeechEvents() {
+      this.greetingSpeech.onstart = () => {
+        this.isLoading = true
+      }
+
+      this.greetingSpeech.onend = () => {
+        this.isLoading = false
+      }
+    },
+
+    /**
+     * Shout at the user
+     */
+    speak(text) {
+      // it should be 'craic', but it doesn't sound right
+      this.greetingSpeech.text = text
+
+      this.greetingSpeech.voice = this.voiceList[this.selectedVoice]
+      if (process.browser) {
+        this.synth = window.speechSynthesis
+      }
+
+      this.synth.speak(this.greetingSpeech)
     },
   },
 }
