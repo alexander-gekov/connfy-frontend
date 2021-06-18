@@ -7,7 +7,7 @@
         class="
           flex
           border-4 border-orange
-          w-2/3
+          w-10/12
           mb-5
           px-4
           py-2

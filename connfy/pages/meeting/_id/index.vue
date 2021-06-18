@@ -10,7 +10,7 @@
       </p>
       <div class="flex justify-start mt-5">
         <nuxt-link
-          to="notes"
+          to="1/private-notes"
           class="
             bg-orange
             px-4
@@ -30,7 +30,7 @@
           Private Notes
         </nuxt-link>
         <nuxt-link
-          to="notes"
+          to="1/shared-notes"
           class="
             bg-orange
             px-4
@@ -69,7 +69,7 @@
           focus:outline-none
         "
       >
-        <img class="w-6 mr-2" src="../../assets/google-maps.svg" /> Open in
+        <img class="w-6 mr-2" src="../../../assets/google-maps.svg" /> Open in
         Google Maps
       </button>
       <div class="flex flex-col mt-5">
