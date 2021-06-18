@@ -25,6 +25,7 @@ export default {
     { src: '~plugins/vue-formulate', ssr: false },
     { src: '~plugins/vue-tour', ssr: false },
     { src: '~plugins/vue-geolocation', ssr: false },
+    { src: '~plugins/vue-tooltip', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -2,13 +2,113 @@
   <div>
     <Title class="py-3" pageTitle="Shared notes" />
     <div class="max-w-4xl mx-auto px-5">
-      <div class="speech-to-txt" @click="startSpeechToTxt">Speech to txt</div>
-      <p>{{ transcription_ }}</p>
+      <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
+        <div class="text-sm text-black ml-4">Simon Cowell</div>
+        <div
+          class="
+            bg-white
+            px-4
+            py-2
+            rounded-2xl
+            shadow-lg
+            text-black
+            flex
+            justify-between
+          "
+        >
+          <div class="">{{ note.message }}</div>
+          <div class="p-2 flex flex-col">
+            <svg
+              class="w-6 h-6 mb-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+              ></path>
+            </svg>
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
     <div
-      class="fixed flex justify-between p-2 pb-0 bg-white"
+      class="fixed flex items-center justify-between p-2 pb-0 bg-white"
       style="bottom: 0px; right: 0px; left: 0px"
     >
+      <transition name="fade">
+        <button
+          v-if="isAddOpen"
+          class="
+            transition
+            duration-750
+            ease-in
+            absolute
+            -top-12
+            left-14
+            bg-blue
+            rounded-full
+            text-white
+            px-4
+            py-2
+          "
+        >
+          Note
+        </button>
+      </transition>
+      <transition name="fade">
+        <button
+          v-if="isAddOpen"
+          class="
+            transition
+            duration-750
+            ease-in
+            absolute
+            -top-24
+            left-5
+            bg-blue
+            rounded-full
+            text-white
+            px-4
+            py-2
+          "
+        >
+          Topic
+        </button>
+      </transition>
+      <svg
+        @click="isAddOpen = !isAddOpen"
+        class="w-12 h-12 text-blue"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+        ></path>
+      </svg>
       <textarea
         class="
           flex-grow
@@ -45,7 +145,24 @@
           />
         </svg>
       </button>
-      <button>
+      <button @click="startSpeechToTxt">
+        <div v-if="isRecording" class="absolute right-4 -top-1 flex h-4 w-4">
+          <span
+            class="
+              animate-ping
+              absolute
+              inline-flex
+              h-full
+              w-full
+              rounded-full
+              bg-red-400
+              opacity-75
+            "
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-4 w-4 bg-red-500"
+          ></span>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="svg-inline--fa text-blue fa-paper-plane w-7 h-7 mr-2"
@@ -73,32 +190,34 @@ export default {
   },
   created() {
     if (process.browser) {
-      navigator.mediaDevices
-        .getUserMedia({
-          video: true,
-          autio: true,
+      // navigator.mediaDevices
+      //   .getUserMedia({
+      //     video: true,
+      //     autio: true,
+      //   })
+      //   .then(
+      //     (stream) => {
+      //       this.status = 'DONE'
+      //     },
+      //     (err) => {
+      //       console.error(err)
+      //     }
+      //   )
+      navigator.permissions
+        .query({ name: 'microphone' })
+        .then((permissionObj) => {
+          console.log(permissionObj.state)
         })
-        .then(
-          (stream) => {
-            this.status = 'DONE'
-          },
-          (err) => {
-            console.error(err)
-          }
-        )
-      // navigator.permissions
-      //   .query({ name: 'microphone' })
-      //   .then((permissionObj) => {
-      //     console.log(permissionObj.state)
-      //   })
-      //   .catch((error) => {
-      //     console.log('Got error :', error)
-      //   })
+        .catch((error) => {
+          console.log('Got error :', error)
+        })
     }
   },
   data() {
     return {
       message: '',
+      isAddOpen: false,
+      isRecording: false,
       notes: [
         {
           id: 0,
@@ -126,10 +245,10 @@ export default {
     },
     startSpeechToTxt() {
       // initialisation of voicereco
-
+      this.isRecording = true
       window.SpeechRecognition =
         window.SpeechRecognition || window.webkitSpeechRecognition
-      const recognition = new window.SpeechRecognition()
+      const recognition = new window.webkitSpeechRecognition()
       recognition.lang = this.lang_
       recognition.interimResults = true
 
@@ -144,8 +263,10 @@ export default {
       // end of transcription
       recognition.addEventListener('end', () => {
         this.transcription_.push(this.runtimeTranscription_)
+        this.notes.push({ id: 1, message: this.runtimeTranscription_ })
         this.runtimeTranscription_ = ''
         recognition.stop()
+        this.isRecording = false
       })
       recognition.start()
     },
@@ -153,4 +274,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
