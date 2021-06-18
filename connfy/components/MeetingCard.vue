@@ -11,31 +11,22 @@
     "
   >
     <div class="flex justify-between items-baseline">
-      <h1 class="text-white text-xl font-bold font-montserrat">
-        Brainstorm meeting
+      <h1 class="text-white text-lg font-bold font-montserrat">
+        {{ meeting.title }}
       </h1>
-      <span class="text-white text-light">Today</span>
+      <span class="text-white text-light">{{ meeting.date }}</span>
     </div>
     <div class="flex">
-      <span class="text-white text-light">10:00 - 11:00</span>
+      <span class="text-white text-light">{{ meeting.start_time }} - {{ meeting.end_time }}</span>
     </div>
     <div class="flex justify-between items-baseline mt-5">
       <div class="attendees flex self-end">
+        <div v-for="attendee in meeting.attendees">
         <circle-image
-          imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
+          :imageUrl="attendee.picture"
         />
-        <circle-image
-          class="-ml-3"
-          imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
-        />
-        <circle-image
-          class="-ml-3"
-          imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
-        />
-        <circle-image
-          class="-ml-3"
-          imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
-        />
+        </div>
+
       </div>
       <nuxt-link
         to="/meeting/1"
@@ -60,10 +51,10 @@
 </template>
 
 <script lang="ts">
-import { Meeting } from '../_providers/Meeting/Meeting'
+// import { Meeting } from '../_providers/Meeting/Meeting'
 export default {
   props: {
-    meeting: Meeting,
+    meeting: Object,
   },
 }
 </script>

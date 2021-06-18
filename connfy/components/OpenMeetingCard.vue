@@ -11,11 +11,12 @@
     </div>
 
     <div class="p-4 pt-2">
-      <h2 class="text-xl font-light">Title of meeting</h2>
+      <h2 class="text-xl font-light">{{ meeting.title }}</h2>
       <div class="flex flex-row justify-between">
         <div class="flex flex-col">
-          <h3><font-awesome-icon :icon="['far', 'clock']" /> 30 min</h3>
-          <h3>@ 13:30, May 14</h3>
+          <h3><font-awesome-icon :icon="['far', 'clock']" />
+            {{ meeting.duration }}</h3>
+          <h3>@ {{ meeting.date }}</h3>
         </div>
         <div class="flex flex-col">
           <nuxt-link
@@ -34,7 +35,7 @@
               focus:outline-none
             "
           >
-            Details ⏭
+            Details
           </nuxt-link>
         </div>
       </div>
@@ -45,6 +46,10 @@
 <script>
 export default {
   name: 'openMeetingCard.vue',
+  props: {
+    meeting: Object
+  },
+
 }
 </script>
 

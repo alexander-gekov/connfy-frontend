@@ -159,11 +159,6 @@ export default {
         let dayString = String(day.date).split(' ')
         this.date = dayString[0] + " " + dayString[1] + " " + dayString[2];
       } else {
-        // Do nothing or add meeting if the date is in the future
-        this.days.push({
-          id: day.id,
-          date: day.date,
-        });
       }
     },
   },

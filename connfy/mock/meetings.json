@@ -1,6 +1,9 @@
 [{
     "title": "Brainstorm meeting",
     "description": "In this meeting we have to brainstorm ideas about Connfy",
+    "date": "2021-06-28",
+    "start_time": "10:00",
+    "end_time": "11:00",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -30,5 +33,101 @@
         {"lng":"5.23423423","lat":"40.2131241"}]
     },
     "notes": "Object"
-}
+},
+  {
+    "title": "Next Sprint planning",
+    "description": "Discuss the features that will be completed by the end of the next sprint.",
+    "date": "2021-06-23",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "route": {
+      "title": "",
+      "length": "",
+      "duration": "",
+      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
+        {"lng":"5.2341536","lat":"40.21323556"},
+        {"lng":"5.23423423","lat":"40.2131241"}]
+    },
+    "notes": "Object"
+  },
+  {
+    "title": "Discuss transition to new office.",
+    "description": "Set dates to move all tech devices and furniture.",
+    "date": "2021-06-24",
+    "start_time": "15:00",
+    "end_time": "16:00",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "route": {
+      "title": "",
+      "length": "",
+      "duration": "",
+      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
+        {"lng":"5.2341536","lat":"40.21323556"},
+        {"lng":"5.23423423","lat":"40.2131241"}]
+    },
+    "notes": "Object"
+  },
+  {
+    "title": "Client meeting",
+    "description": "Discuss what will be presented during the client meeting this Friday.",
+    "date": "2021-06-22",
+    "start_time": "17:00",
+    "end_time": "18:00",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Viktor Naydenov",
+        "picture": "https://randomuser.me/api/portraits/men/64.jpg",
+        "email": "viktor.naydneov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "route": {
+      "title": "",
+      "length": "",
+      "duration": "",
+      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
+        {"lng":"5.2341536","lat":"40.21323556"},
+        {"lng":"5.23423423","lat":"40.2131241"}]
+    },
+    "notes": "Object"
+  }
 ]

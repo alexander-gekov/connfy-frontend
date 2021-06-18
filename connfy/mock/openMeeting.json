@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "date": "13:30, 18 May, 2021",
+    "title": "Network meeting",
+    "description": "Discuss the features that will be completed by the end of the next sprint.",
+    "duration": "1 hour"
+  },
+  {
+    "id": 1,
+    "date": "16:00, 20 May, 2021",
+    "title": "Cycling enthusiasts",
+    "description": "Discuss the features that will be completed by the end of the next sprint.",
+    "duration": "30 min"
+  },
+  {
+    "id": 2,
+    "date": "17:30, 21 May, 2021",
+    "title": "Book club discussions",
+    "description": "Discuss the features that will be completed by the end of the next sprint.",
+    "duration": "1:30 hours"
+  },
+  {
+    "id": 3,
+    "date": "12:30, 25 May, 2021",
+    "title": "Networking",
+    "description": "Discuss the features that will be completed by the end of the next sprint.",
+    "duration": "1 hour"
+  }
+]

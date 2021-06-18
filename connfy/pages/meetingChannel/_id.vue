@@ -5,25 +5,25 @@
       <h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2>
     </div>
     <div class="flex flex-row justify-center">
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName" :notes="numberOfNotes"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"><topic-tile :name="topics[0].name" :notes="topics[0].numberOfNotes"></topic-tile></nuxt-link>
 
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName" :notes="numberOfNotes"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"><topic-tile :name="topics[1].name" :notes="topics[1].numberOfNotes"></topic-tile></nuxt-link>
 
-      <nuxt-link to="/topic/1"><topic-tile :name="topicName" :notes="numberOfNotes"></topic-tile></nuxt-link>
+      <nuxt-link to="/topic/1"><topic-tile :name="topics[2].name" :notes="topics[2].numberOfNotes"></topic-tile></nuxt-link>
     </div>
 
     <div class="flex flex-row justify-between m-5">
-      <h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-left']" /></h2>
-      <h2>18 May, 2021:</h2>
-      <h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2>
+      <button v-on:click="prev"><h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-left']" /></h2></button>
+      <h2>{{  currentMeeting.date }}</h2>
+      <button v-on:click="next"><h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2></button>
     </div>
 
     <div class="flex flex-col mx-4 bg-white shadow-lg rounded-xl p-3 text-lg ">
       <span class="pt-2 underline"> Subject: </span>
-      <h1 class="font-light mb-2">Discuss transition to new office.</h1>
+      <h1 class="font-light mb-2">{{ currentMeeting.title }}</h1>
       <hr>
       <span class="pt-2 underline"> Agenda: </span>
-      <h1 class="font-light mb-2">Set dates to move tech devices.</h1>
+      <h1 class="font-light mb-2">{{ currentMeeting.description}}</h1>
       <hr>
       <span class="py-2 underline"> Participants: </span>
       <div class="attendees flex">
@@ -65,10 +65,45 @@ export default {
   components: { topicTile, CircleImage },
   data() {
     return {
-      topicName: 'Vacation',
-      numberOfNotes: 12,
+      topics: [{name: "Vacation", numberOfNotes: 6}, {name: "Sprint", numberOfNotes: 3},{name: "Salary", numberOfNotes: 8}],
+      meetings: [ {
+        id: 0,
+        date: "18 May, 2021",
+        title: "Next Sprint planning.",
+        description: "Discuss the features that will be completed by the end of the next sprint."
+      },{
+        id: 1,
+        date: "15 May, 2021",
+        title: "Discuss transition to new office.",
+        description: "Set dates to move all tech devices and furniture."
+      }, {
+      id: 2,
+        date: "13 May, 2021",
+        title: "Client meeting.",
+        description: "Discuss what will be presented during the client meeting this Friday."
+    },],
+      currentMeeting: {}
     }
+
   },
+  created() {
+    this.currentMeeting = this.meetings[0]
+  },
+  methods: {
+    prev() {
+      let nextId = this.currentMeeting.id + 1
+      if (this.meetings.length > nextId) {
+        this.currentMeeting = this.meetings[nextId]
+      }
+    },
+    next() {
+      if (this.currentMeeting.id - 1 >= 0) {
+        let nextId = this.currentMeeting.id - 1
+        this.currentMeeting = this.meetings[nextId]
+      }
+    }
+  }
+
 }
 </script>
 
