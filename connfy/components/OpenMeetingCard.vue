@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-xl shadow-lg bg-white flex flex-col">
-    <div id="map-wrap" class="rounded-xl" style="height: 180px">
+    <div id="map-wrap" class="rounded-xl h-40">
       <no-ssr>
         <l-map :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
           <l-tile-layer
