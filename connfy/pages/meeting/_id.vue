@@ -78,12 +78,23 @@
     </div>
     <div id="map-wrap" style="height: 200px">
       <no-ssr>
-        <l-map :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
-          <l-tile-layer
-            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-          ></l-tile-layer>
-        </l-map>
+          <l-map :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
+            <l-tile-layer
+              url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            ></l-tile-layer>
+          </l-map>
       </no-ssr>
+    </div>
+    <div id="app">
+      <HereMap 
+        ref="map"
+        apiKey=""
+        appId=""
+        appCode=""
+        latitude="37"
+        longitude="-121"
+        zoom="10"
+        />
     </div>
     <weather lat="51.411164486772115" lon="5.457615316908337" />
   </div>
@@ -93,8 +104,12 @@
 import Vue from 'vue'
 import CircleImage from '~/components/CircleImage.vue'
 import MeetingCard from '~/components/MeetingCard.vue'
+import HereMap from '~/components/HereMap.vue'
 
 export default Vue.extend({
-  components: { MeetingCard, CircleImage },
+  components: { MeetingCard, CircleImage, HereMap },
+  mounted() {
+    let map = this.$refs.map;
+  }
 })
 </script>
