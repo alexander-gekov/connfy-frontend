@@ -1,102 +1,383 @@
 <template>
   <div>
     <Title class="py-3" pageTitle="Shared notes" />
-    <div class="max-w-4xl mx-auto px-5">
-      <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
-        <div class="text-sm text-black ml-4">Simon Cowell</div>
+    <div class="max-w-4xl mx-auto px-5 pb-20 bg-gray-100">
+      <div v-for="topic in topics" :key="topic.id" class="flex flex-col mb-10">
+        <div v-if="!topic.showEdit" class="text-xl font-bold text-black ml-4">
+          {{ topic.name }}
+        </div>
+        <formulate-input
+          type="text"
+          v-if="topic.showEdit"
+          @keyup.enter="topic.showEdit = false"
+          v-model="topic.name"
+          class="text-sm text-black ml-4 absolute -mt-5"
+          auto
+        ></formulate-input>
         <div
           class="
-            bg-white
-            px-4
-            py-2
-            rounded-2xl
-            shadow-lg
-            text-black
-            flex
-            justify-between
+            flex flex-col
+            border-4 border-orange border-dashed
+            min-h-32
+            rounded-xl
+            p-2
           "
         >
-          <div class="">{{ note.message }}</div>
-          <div class="p-2 flex flex-col">
-            <svg
-              class="w-6 h-6 mb-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          <div v-if="!topic.showAll">
+            <draggable class="list-group" :list="topic.notes" group="notes">
+              <div
+                class="flex flex-col"
+                v-for="(note, index) in topic.notes"
+                :key="note.id"
+              >
+                <div v-if="index <= 2" class="flex flex-col">
+                  <div class="text-sm text-black ml-4">Simon Cowell</div>
+
+                  <div
+                    class="
+                      bg-white
+                      px-4
+                      py-2
+                      rounded-2xl
+                      shadow-lg
+                      text-black
+                      flex
+                      justify-between
+                      mb-2
+                    "
+                  >
+                    <div class="">{{ note.message }}</div>
+                    <div class="p-2 flex flex-col">
+                      <div
+                        v-if="note.showButtons"
+                        class="
+                          absolute
+                          right-20
+                          border
+                          shadow-lg
+                          p-2
+                          bg-white
+                          rounded-2xl
+                          flex flex-col
+                        "
+                      >
+                        <div class="px-6 py-2 flex">
+                          <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                            ></path>
+                          </svg>
+                          <div class="ml-2">Edit</div>
+                        </div>
+                        <hr />
+                        <div
+                          @click="removeNote(topic.notes, index)"
+                          class="px-6 py-2 flex"
+                        >
+                          <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            ></path>
+                          </svg>
+                          <div class="ml-2">Delete</div>
+                        </div>
+                      </div>
+                      <svg
+                        @click="note.showButtons = !note.showButtons"
+                        class="w-6 h-6 mb-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                        ></path>
+                      </svg>
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        @click="speak(note.message)"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </draggable>
+          </div>
+          <div v-if="topic.showAll">
+            <draggable class="list-group" :list="topic.notes" group="notes">
+              <div
+                class="flex flex-col"
+                v-for="note in topic.notes"
+                :key="note.id"
+              >
+                <div class="text-sm text-black ml-4">Simon Cowell</div>
+
+                <div
+                  class="
+                    bg-white
+                    px-4
+                    py-2
+                    rounded-2xl
+                    shadow-lg
+                    text-black
+                    flex
+                    justify-between
+                    mb-2
+                  "
+                >
+                  <div class="">{{ note.message }}</div>
+                  <div class="p-2 flex flex-col">
+                    <div
+                      v-if="note.showButtons"
+                      class="
+                        absolute
+                        right-20
+                        border
+                        shadow-lg
+                        p-2
+                        bg-white
+                        rounded-2xl
+                        flex flex-col
+                      "
+                    >
+                      <div class="px-6 py-2 flex">
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                          ></path>
+                        </svg>
+                        <div class="ml-2">Edit</div>
+                      </div>
+                      <hr />
+                      <div
+                        @click="removeNote(topic.notes, index)"
+                        class="px-6 py-2 flex"
+                      >
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          ></path>
+                        </svg>
+                        <div class="ml-2">Delete</div>
+                      </div>
+                    </div>
+                    <svg
+                      class="w-6 h-6 mb-2"
+                      @click="note.showButtons = !note.showButtons"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                      ></path>
+                    </svg>
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      @click="speak(note.message)"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </draggable>
+          </div>
+          <div class="flex items-center">
+            <div
+              @click="topic.showAll = !topic.showAll"
+              v-if="topic.notes.length > 3"
+              class="
+                bg-blue-light
+                text-gray-800
+                px-6
+                py-2
+                rounded-full
+                self-center
+              "
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-              ></path>
-            </svg>
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              @click="speak(note.message)"
+              {{ topic.showAll ? 'See less' : 'See all' }}
+            </div>
+            <div
+              class="ml-4 text-gray-600"
+              v-if="topic.notes.length > 3 && !topic.showAll"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-              ></path>
-            </svg>
+              + {{ topic.notes.length - 3 }} notes
+            </div>
           </div>
         </div>
       </div>
+      <draggable class="list-group" :list="notes" group="notes">
+        <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
+          <div class="text-sm text-black ml-4">Simon Cowell</div>
+          <div
+            class="
+              bg-white
+              px-4
+              py-2
+              rounded-2xl
+              shadow-lg
+              text-black
+              flex
+              justify-between
+            "
+          >
+            <div class="">{{ note.message }}</div>
+            <div class="p-2 flex flex-col">
+              <div
+                v-if="note.showButtons"
+                class="
+                  absolute
+                  right-20
+                  border
+                  shadow-lg
+                  p-2
+                  bg-white
+                  rounded-2xl
+                  flex flex-col
+                "
+              >
+                <div class="px-6 py-2 flex">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    ></path>
+                  </svg>
+                  <div class="ml-2">Edit</div>
+                </div>
+                <hr />
+                <div @click="removeNote(notes, index)" class="px-6 py-2 flex">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    ></path>
+                  </svg>
+                  <div class="ml-2">Delete</div>
+                </div>
+              </div>
+              <svg
+                @click="note.showButtons = !note.showButtons"
+                class="w-6 h-6 mb-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                ></path>
+              </svg>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                @click="speak(note.message)"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </draggable>
     </div>
     <div
       class="fixed flex items-center justify-between p-2 pb-0 bg-white"
       style="bottom: 0px; right: 0px; left: 0px"
     >
-      <transition name="fade">
-        <button
-          v-if="isAddOpen"
-          class="
-            transition
-            duration-750
-            ease-in
-            absolute
-            -top-12
-            left-14
-            bg-blue
-            rounded-full
-            text-white
-            px-4
-            py-2
-          "
-        >
-          Note
-        </button>
-      </transition>
-      <transition name="fade">
-        <button
-          v-if="isAddOpen"
-          class="
-            transition
-            duration-750
-            ease-in
-            absolute
-            -top-24
-            left-5
-            bg-blue
-            rounded-full
-            text-white
-            px-4
-            py-2
-          "
-        >
-          Topic
-        </button>
-      </transition>
       <svg
-        @click="isAddOpen = !isAddOpen"
+        @click="addTopic"
         class="w-12 h-12 text-blue"
         fill="none"
         stroke="currentColor"
@@ -221,7 +502,7 @@ export default {
     }
 
     this.voiceList = this.synth.getVoices()
-    console.log(this.voiceList)
+    // console.log(this.voiceList)
 
     if (this.voiceList.length) {
       this.isLoading = false
@@ -246,13 +527,37 @@ export default {
       notes: [
         {
           id: 0,
+          showButtons: false,
           message:
             'This is a basic mobile chat layout, build with tailwind css',
         },
         {
           id: 1,
+          showButtons: false,
           message:
             'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
+        },
+      ],
+      topics: [
+        {
+          id: 1,
+          name: 'Brainstorm',
+          showEdit: false,
+          showAll: false,
+          notes: [
+            {
+              id: 4,
+              showButtons: false,
+              message:
+                'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
+            },
+            {
+              id: 5,
+              showButtons: false,
+              message:
+                'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
+            },
+          ],
         },
       ],
       runtimeTranscription_: '',
@@ -268,10 +573,13 @@ export default {
   methods: {
     sendMessage() {
       if (this.message != '') {
-        let msg = { id: 11, message: this.message }
+        let msg = { id: 11, showButtons: false, message: this.message }
         this.notes.push(msg)
         this.message = ''
       }
+    },
+    removeNote(array, index) {
+      array.splice(index, 1)
     },
     startSpeechToTxt() {
       // initialisation of voicereco
@@ -326,6 +634,15 @@ export default {
       }
 
       this.synth.speak(this.greetingSpeech)
+    },
+    addTopic() {
+      this.topics.push({
+        id: 232,
+        name: '',
+        showEdit: true,
+        showAll: false,
+        notes: [],
+      })
     },
   },
 }
