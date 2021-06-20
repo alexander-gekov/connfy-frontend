@@ -77,6 +77,7 @@ export default {
   },
 
   oneSignal: {
+    cdn: true,
     init: {
       appId: 'd048baa6-dfe0-4d9c-a3f2-c4ac5267f36d',
       allowLocalhostAsSecureOrigin: true,

@@ -36,7 +36,7 @@
 </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import MeetingCard from '~/components/MeetingCard.vue'
 import meetings from '../mock/meetings.json'
@@ -44,6 +44,17 @@ import meetings from '../mock/meetings.json'
 
 export default Vue.extend({
   components: { MeetingCard },
+  created() {
+    this.$OneSignal.push(() => {
+    this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
+    if (isEnabled) {
+      console.log('Push notifications are enabled!')
+    } else {
+      console.log('Push notifications are not enabled yet.')
+    }
+  })
+})
+  },
   computed: {
     getPreviousPage() {
       return this.$store.state.previousPage
