@@ -186,6 +186,7 @@
                     text-black
                     flex
                     justify-between
+                    items-center
                     mb-2
                   "
                 >

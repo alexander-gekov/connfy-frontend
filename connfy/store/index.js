@@ -7,6 +7,7 @@ export const state = () => ({
 
 export const mutations = {
   add(state, meeting) {
+    meeting.route.distance = 1.2
     state.meetings[0].push(meeting)
   },
   updateMeeting(state, data) {
