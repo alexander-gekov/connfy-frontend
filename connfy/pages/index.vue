@@ -11,6 +11,7 @@
         <nuxt-link to="/topic/1">Topic 1</nuxt-link>
         <nuxt-link to="/meetingChannel/1">Meeting channel 1</nuxt-link>
         <nuxt-link to="/meeting/notes">Notes</nuxt-link>
+        <nuxt-link to="/login">Login</nuxt-link>
       </div>
     </div>
   </div>

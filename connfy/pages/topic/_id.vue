@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Topics" />
   <div class="container flex flex-col md:w-1/2">
     <add-note-on-topic></add-note-on-topic>
     <div class="flex flex-wrap justify-between p-4">
@@ -7,6 +9,7 @@
       <note-card class="md:w-1/2"></note-card>
     </div>
   </div>
+</div>
 </template>
 
 <script>
