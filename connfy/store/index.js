@@ -7,8 +7,30 @@ export const state = () => ({
 
 export const mutations = {
   add(state, meeting) {
-    meeting.route.distance = 1.2
-    state.meetings[0].push(meeting)
+    const newMeeting = {
+      ...meeting,
+      attendees: [
+        {
+          name: 'Aleksandar Gekov',
+          picture: 'https://randomuser.me/api/portraits/men/46.jpg',
+          email: 'aleksandar.gekov@fake-email.com',
+          accepted: true,
+        },
+        {
+          name: 'Yulia Krusharska',
+          picture: 'https://randomuser.me/api/portraits/women/46.jpg',
+          email: 'yulia.krusharksa@fake-email.com',
+          accepted: false,
+        },
+      ],
+      route: {
+        distance: 1.4,
+      },
+      privateNotes: [],
+      sharedNotes: [],
+      sharedTopics: [],
+    }
+    state.meetings[0].push(newMeeting)
   },
   updateMeeting(state, data) {
     state.meetings[0][data.meetingId] = data.meeting

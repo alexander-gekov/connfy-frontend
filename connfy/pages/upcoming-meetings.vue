@@ -44,15 +44,17 @@ import MeetingCard from '~/components/MeetingCard.vue'
 export default Vue.extend({
   components: { MeetingCard },
   created() {
-    this.$OneSignal.push(() => {
-      this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
-        if (isEnabled) {
-          console.log('Push notifications are enabled!')
-        } else {
-          console.log('Push notifications are not enabled yet.')
-        }
+    if (this.$OneSignal != undefined) {
+      this.$OneSignal.push(() => {
+        this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
+          if (isEnabled) {
+            console.log('Push notifications are enabled!')
+          } else {
+            console.log('Push notifications are not enabled yet.')
+          }
+        })
       })
-    })
+    }
   },
   computed: {
     getPreviousPage() {
