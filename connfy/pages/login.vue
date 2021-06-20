@@ -13,9 +13,11 @@
     <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="password" name="password" id="" placeholder="Password">
   </div>
   <div class="flex items-center justify-between mb-5">
-    <button class="bg-orange-light text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
+    <nuxt-link to="/open-meetings">
+      <button class="bg-orange-light text-white font-light py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
       LOGIN
-    </button>
+      </button>
+    </nuxt-link>
     <a class="inline-block align-baseline font-light text-sm text-orange hover:text-indigo-500" href="#">
       Forgot Password?
     </a>
