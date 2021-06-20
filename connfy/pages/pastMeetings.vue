@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Title class="py-3" pageTitle="Past meetings" />
-    <div class="md:w-1/2 px-5">
+    <Title id="v-step-4" class="py-3" pageTitle="Past meetings" />
+    <div class="md:w-1/2 px-5 h-screen">
       <div class="flex justify-center">
         <no-ssr>
           <v-calendar
@@ -145,6 +145,9 @@ export default {
       days: [],
       isHidden: true,
     }
+  },
+  mounted: function () {
+    this.$tours['myTour'].start()
   },
   computed: {
     dates() {
