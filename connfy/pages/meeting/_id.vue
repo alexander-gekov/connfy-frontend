@@ -96,5 +96,6 @@ import MeetingCard from '~/components/MeetingCard.vue'
 
 export default Vue.extend({
   components: { MeetingCard, CircleImage },
+
 })
 </script>

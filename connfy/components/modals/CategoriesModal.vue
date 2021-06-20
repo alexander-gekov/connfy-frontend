@@ -14,7 +14,7 @@
               + Add new topic
             </div>
             <div class="text-center font-bold text-blue border-t border-solid border-blueGray-200 py-2">
-              Current topic
+              {{ topic }}
             </div>
            <div class="text-center border-t border-solid border-blueGray-200 py-4">
               Topic 1
@@ -47,6 +47,7 @@ export default {
   name: "CategoriesModal",
   props: {
     showModal: Boolean,
+    topic: String,
   },
   data() {
     return {
