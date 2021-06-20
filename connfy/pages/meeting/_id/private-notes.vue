@@ -1,54 +1,136 @@
 <template>
   <div>
     <Title class="py-3" pageTitle="Private notes" />
-    <div class="max-w-4xl mx-auto px-5">
-      <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
+    <div class="max-w-4xl mx-auto px-5 pb-20 bg-gray-100">
+      <draggable
+        class="list-group"
+        :list="meeting.privateNotes"
+        group="notes"
+        handle=".handle"
+      >
         <div
-          class="
-            bg-white
-            px-4
-            py-2
-            rounded-2xl
-            shadow-lg
-            text-black
-            flex
-            justify-between
-          "
+          v-for="note in meeting.privateNotes"
+          :key="note.id"
+          class="flex flex-col mb-5"
         >
-          <div class="">{{ note.message }}</div>
-          <div class="p-2 flex flex-col">
-            <svg
-              class="w-6 h-6 mb-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-              ></path>
-            </svg>
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              @click="speak(note.message)"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-              ></path>
-            </svg>
+          <div class="text-sm text-black ml-4">Simon Cowell</div>
+          <div
+            class="
+              bg-white
+              px-4
+              py-2
+              rounded-2xl
+              shadow-lg
+              text-black
+              flex
+              justify-between
+              items-center
+            "
+          >
+            <div class="handle mr-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                ></path>
+              </svg>
+            </div>
+            <div class="">{{ note.message }}</div>
+            <div class="p-2 flex flex-col">
+              <div
+                v-if="note.showButtons"
+                class="
+                  absolute
+                  right-20
+                  border
+                  shadow-lg
+                  p-2
+                  bg-white
+                  rounded-2xl
+                  flex flex-col
+                "
+              >
+                <div class="px-6 py-2 flex">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    ></path>
+                  </svg>
+                  <div class="ml-2">Edit</div>
+                </div>
+                <hr />
+                <div
+                  @click="removeNote(meeting.privateNotes, index)"
+                  class="px-6 py-2 flex"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    ></path>
+                  </svg>
+                  <div class="ml-2">Delete</div>
+                </div>
+              </div>
+              <svg
+                @click="note.showButtons = !note.showButtons"
+                class="w-6 h-6 mb-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                ></path>
+              </svg>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                @click="speak(note.message)"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
+      </draggable>
     </div>
     <div
       class="fixed flex items-center justify-between p-2 pb-0 bg-white"
@@ -143,6 +225,7 @@ export default {
         .catch((error) => {
           console.log('Got error :', error)
         })
+      this.meeting = this.$store.getters.getById(this.$route.params.id)
     }
   },
   mounted() {
@@ -152,7 +235,7 @@ export default {
     }
 
     this.voiceList = this.synth.getVoices()
-    console.log(this.voiceList)
+    // console.log(this.voiceList)
 
     if (this.voiceList.length) {
       this.isLoading = false
@@ -174,18 +257,7 @@ export default {
       message: '',
       isAddOpen: false,
       isRecording: false,
-      notes: [
-        {
-          id: 0,
-          message:
-            'This is a basic mobile chat layout, build with tailwind css',
-        },
-        {
-          id: 1,
-          message:
-            'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
-        },
-      ],
+      meeting: [],
       runtimeTranscription_: '',
       transcription_: [],
       lang_: 'en-EN',
@@ -199,10 +271,17 @@ export default {
   methods: {
     sendMessage() {
       if (this.message != '') {
-        let msg = { id: 11, message: this.message }
-        this.notes.push(msg)
+        let msg = {
+          id: this.meeting.privateNotes.length + 1,
+          showButtons: false,
+          message: this.message,
+        }
+        this.meeting.privateNotes.push(msg)
         this.message = ''
       }
+    },
+    removeNote(array, index) {
+      array.splice(index, 1)
     },
     startSpeechToTxt() {
       // initialisation of voicereco
@@ -224,7 +303,11 @@ export default {
       // end of transcription
       recognition.addEventListener('end', () => {
         this.transcription_.push(this.runtimeTranscription_)
-        this.notes.push({ id: 1, message: this.runtimeTranscription_ })
+        this.meeting.privateNotes.push({
+          id: this.meeting.privateNotes.length + 1,
+          showButtons: false,
+          message: this.runtimeTranscription_,
+        })
         this.runtimeTranscription_ = ''
         recognition.stop()
         this.isRecording = false

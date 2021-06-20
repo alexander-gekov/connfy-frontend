@@ -9,7 +9,7 @@
       </p>
       <div class="flex justify-start mt-5">
         <nuxt-link
-          to="1/private-notes"
+          :to="`${this.$route.params.id}/private-notes`"
           class="
             bg-orange
             px-4
@@ -29,7 +29,7 @@
           Private Notes
         </nuxt-link>
         <nuxt-link
-          to="1/shared-notes"
+          :to="`${this.$route.params.id}/shared-notes`"
           class="
             bg-orange
             px-4

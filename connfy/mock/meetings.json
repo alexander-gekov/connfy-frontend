@@ -47,7 +47,34 @@
         }
       ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "This is a basic mobile chat layout, build with tailwind css"
+      },
+      {
+        "id": 1,
+        "showButtons": false,
+        "message":
+          "Text 2 fdsfdsfsd"
+      }
+    ],
+    "sharedNotes": [],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming",
+        "notes": [{
+          "id": 0,
+          "showButtons": false,
+          "message":
+            "This is top secret text"
+        }],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   },
   {
     "id": 1,
@@ -90,7 +117,28 @@
         }
       ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 2"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   },
   {
     "id": 2,
@@ -133,7 +181,28 @@
         }
       ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 3"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text meeting 3"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming meeting 3",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   },
   {
     "id": 3,
@@ -182,7 +251,28 @@
         }
       ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 4"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text meeting 4"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming meeting 4",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   }
 ]
 

@@ -2,7 +2,11 @@
   <div>
     <Title class="py-3" pageTitle="Shared notes" />
     <div class="max-w-4xl mx-auto px-5 pb-20 bg-gray-100">
-      <div v-for="topic in topics" :key="topic.id" class="flex flex-col mb-10">
+      <div
+        v-for="topic in meeting.sharedTopics"
+        :key="topic.id"
+        class="flex flex-col mb-10"
+      >
         <div v-if="!topic.showEdit" class="text-xl font-bold text-black ml-4">
           {{ topic.name }}
         </div>
@@ -12,7 +16,6 @@
           @keyup.enter="topic.showEdit = false"
           v-model="topic.name"
           class="text-sm text-black ml-4 absolute -mt-5"
-          auto
         ></formulate-input>
         <div
           class="
@@ -317,11 +320,15 @@
       </div>
       <draggable
         class="list-group"
-        :list="notes"
+        :list="meeting.sharedNotes"
         group="notes"
         handle=".handle"
       >
-        <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
+        <div
+          v-for="note in meeting.sharedNotes"
+          :key="note.id"
+          class="flex flex-col mb-5"
+        >
           <div class="text-sm text-black ml-4">Simon Cowell</div>
           <div
             class="
@@ -385,7 +392,10 @@
                   <div class="ml-2">Edit</div>
                 </div>
                 <hr />
-                <div @click="removeNote(notes, index)" class="px-6 py-2 flex">
+                <div
+                  @click="removeNote(meeting.sharedNotes, index)"
+                  class="px-6 py-2 flex"
+                >
                   <svg
                     class="w-6 h-6"
                     fill="none"
@@ -538,19 +548,6 @@ export default {
   },
   created() {
     if (process.browser) {
-      // navigator.mediaDevices
-      //   .getUserMedia({
-      //     video: true,
-      //     autio: true,
-      //   })
-      //   .then(
-      //     (stream) => {
-      //       this.status = 'DONE'
-      //     },
-      //     (err) => {
-      //       console.error(err)
-      //     }
-      //   )
       navigator.permissions
         .query({ name: 'microphone' })
         .then((permissionObj) => {
@@ -559,6 +556,7 @@ export default {
         .catch((error) => {
           console.log('Got error :', error)
         })
+      this.meeting = this.$store.getters.getById(this.$route.params.id)
     }
   },
   mounted() {
@@ -590,42 +588,7 @@ export default {
       message: '',
       isAddOpen: false,
       isRecording: false,
-      notes: [
-        {
-          id: 0,
-          showButtons: false,
-          message:
-            'This is a basic mobile chat layout, build with tailwind css',
-        },
-        {
-          id: 1,
-          showButtons: false,
-          message:
-            'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
-        },
-      ],
-      topics: [
-        {
-          id: 1,
-          name: 'Brainstorm',
-          showEdit: false,
-          showAll: false,
-          notes: [
-            {
-              id: 4,
-              showButtons: false,
-              message:
-                'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
-            },
-            {
-              id: 5,
-              showButtons: false,
-              message:
-                'It will be used for a full tutorial about building a chat app with vue, tailwind and firebase.',
-            },
-          ],
-        },
-      ],
+      meeting: [],
       runtimeTranscription_: '',
       transcription_: [],
       lang_: 'en-EN',
@@ -639,8 +602,12 @@ export default {
   methods: {
     sendMessage() {
       if (this.message != '') {
-        let msg = { id: 11, showButtons: false, message: this.message }
-        this.notes.push(msg)
+        let msg = {
+          id: this.meeting.sharedNotes.length + 1,
+          showButtons: false,
+          message: this.message,
+        }
+        this.meeting.sharedNotes.push(msg)
         this.message = ''
       }
     },
@@ -667,7 +634,11 @@ export default {
       // end of transcription
       recognition.addEventListener('end', () => {
         this.transcription_.push(this.runtimeTranscription_)
-        this.notes.push({ id: 1, message: this.runtimeTranscription_ })
+        this.meeting.sharedNotes.push({
+          id: 2,
+          showButtons: false,
+          message: this.runtimeTranscription_,
+        })
         this.runtimeTranscription_ = ''
         recognition.stop()
         this.isRecording = false
@@ -702,13 +673,17 @@ export default {
       this.synth.speak(this.greetingSpeech)
     },
     addTopic() {
-      this.topics.push({
-        id: 232,
-        name: '',
-        showEdit: true,
-        showAll: false,
-        notes: [],
-      })
+      let data = {
+        topic: {
+          id: this.meeting.sharedTopics.length + 1,
+          name: '',
+          showEdit: true,
+          showAll: false,
+          notes: [],
+        },
+        meetingId: this.$route.params.id,
+      }
+      this.$store.commit('addTopic', data)
     },
   },
 }
