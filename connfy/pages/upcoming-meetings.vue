@@ -40,7 +40,6 @@
 <script>
 import Vue from 'vue'
 import MeetingCard from '~/components/MeetingCard.vue'
-import meetings from '../mock/meetings.json'
 
 export default Vue.extend({
   components: { MeetingCard },
@@ -59,10 +58,12 @@ export default Vue.extend({
     getPreviousPage() {
       return this.$store.state.previousPage
     },
+    meetings () {
+      return this.$store.state.meetings[0]
+    }
   },
-  data() {
-    return {
-      meetings: meetings,
+  data (){
+    return{
     }
   },
 })

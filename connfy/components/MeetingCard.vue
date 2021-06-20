@@ -34,7 +34,7 @@
       </div>
       <nuxt-link
         id="v-step-2"
-        to="/meeting/1"
+        :to="'/meeting/' + meeting.id"
         class="
           bg-orange-light
           transform
