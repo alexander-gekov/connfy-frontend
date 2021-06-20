@@ -2,11 +2,10 @@
   <div>
     <Title class="py-3" pageTitle="Meeting details" />
     <div class="max-w-4xl mx-auto p-5">
-      <div class="font-bold text-2xl">Brainstorm Meeting</div>
+      <div class="font-bold text-2xl">{{ meeting.title}}</div>
       <div class="text-xl mt-5">Description/Agenda</div>
       <p class="text-gray-600">
-        This meeting is about brainstorming new ideas for our project and
-        discussing which ones make it to the final version.
+        {{ meeting.description }}
       </p>
       <div class="flex justify-start mt-5">
         <nuxt-link
@@ -124,6 +123,11 @@ import MeetingCard from '~/components/MeetingCard.vue'
 
 export default Vue.extend({
   components: { MeetingCard, CircleImage },
+  data () {
+    return {
+      meeting: []
+    }
+  },
   methods: {
     openMaps() {
       window.open(
@@ -132,5 +136,15 @@ export default Vue.extend({
       )
     },
   },
+  computed: {
+    meeting() {
+      console.log( this.$route.params.id)
+    }
+  },
+  created() {
+    this.meeting = this.$store.getters.getById(this.$route.params.id);
+    console.log("Meeting " + this.meeting)
+
+  }
 })
 </script>

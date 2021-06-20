@@ -1,4 +1,7 @@
-[{
+[
+
+   {
+     "id": 0,
     "title": "Brainstorm meeting",
     "description": "In this meeting we have to brainstorm ideas about Connfy",
     "date": "2021-06-28",
@@ -28,13 +31,25 @@
       "title": "",
       "length": "",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
     "notes": "Object"
-},
+  },
   {
+    "id": 1,
     "title": "Next Sprint planning",
     "description": "Discuss the features that will be completed by the end of the next sprint.",
     "date": "2021-06-23",
@@ -58,13 +73,25 @@
       "title": "",
       "length": "",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
     "notes": "Object"
   },
   {
+    "id": 2,
     "title": "Discuss transition to new office.",
     "description": "Set dates to move all tech devices and furniture.",
     "date": "2021-06-24",
@@ -88,13 +115,25 @@
       "title": "",
       "length": "",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
     "notes": "Object"
   },
   {
+    "id": 3,
     "title": "Client meeting",
     "description": "Discuss what will be presented during the client meeting this Friday.",
     "date": "2021-06-22",
@@ -124,10 +163,23 @@
       "title": "",
       "length": "",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
     "notes": "Object"
   }
 ]
+
+

@@ -33,7 +33,7 @@
       <span class="text-white text-sm ml-2">+ 2 more</span>
       </div>
       <nuxt-link
-        to="/meeting/1"
+        :to="'/meeting/' + meeting.id"
         class="
           bg-orange-light
           transform
