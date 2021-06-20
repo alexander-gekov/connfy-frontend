@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Topics" />
   <div class="container flex flex-col md:w-1/2">
     <add-note-on-topic v-if="showEdit" :note="editedNote"></add-note-on-topic>
     <div class="flex flex-wrap justify-between p-4">
@@ -7,6 +9,7 @@
       <note-card @edit-clicked="editClicked" class="md:w-1/2" :note="note3"></note-card>
     </div>
   </div>
+</div>
 </template>
 
 <script>

@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Title class="py-3" pageTitle="Meeting channel" />
   <div class="container flex flex-col md:w-1/2">
     <div class="flex flex-row justify-between m-5">
       <h2 class="font-bold text-lg">Topics:</h2>
@@ -55,6 +57,7 @@
     </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
