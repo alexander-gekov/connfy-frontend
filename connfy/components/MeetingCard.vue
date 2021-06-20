@@ -17,22 +17,23 @@
       <span class="text-white text-light">{{ meeting.date }}</span>
     </div>
     <div class="flex">
-      <span class="text-white text-light">{{ meeting.start_time }} - {{ meeting.end_time }}</span>
+      <span class="text-white text-light"
+        >{{ meeting.start_time }} - {{ meeting.end_time }}</span
+      >
     </div>
-        <div class="flex flex-col">
+    <div class="flex flex-col">
       <span class="text-white">2.5 km</span>
       <span class="text-white">Rachelsmolen 1</span>
     </div>
     <div class="flex justify-between items-baseline mt-5">
-      <div class="attendees flex self-end">
+      <div class="attendees flex self-end items-center">
         <div :key="attendee" v-for="attendee in meeting.attendees">
-        <circle-image
-          :imageUrl="attendee.picture"
-        />
+          <circle-image :imageUrl="attendee.picture" />
         </div>
-      <span class="text-white text-sm ml-2">+ 2 more</span>
+        <span class="text-white text-sm ml-2">+ 2 more</span>
       </div>
       <nuxt-link
+        id="v-step-2"
         to="/meeting/1"
         class="
           bg-orange-light
