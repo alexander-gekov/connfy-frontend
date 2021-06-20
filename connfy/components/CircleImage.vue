@@ -1,5 +1,5 @@
 <template>
-  <img class="rounded-full w-10 border-white border-2" :src="imageUrl" alt="" />
+  <img class="rounded-full w-8 border-white border-2" :src="imageUrl" alt="" />
 </template>
 
 <script>

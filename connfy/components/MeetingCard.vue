@@ -19,14 +19,18 @@
     <div class="flex">
       <span class="text-white text-light">{{ meeting.start_time }} - {{ meeting.end_time }}</span>
     </div>
+        <div class="flex flex-col">
+      <span class="text-white">2.5 km</span>
+      <span class="text-white">Rachelsmolen 1</span>
+    </div>
     <div class="flex justify-between items-baseline mt-5">
       <div class="attendees flex self-end">
-        <div v-for="attendee in meeting.attendees">
+        <div :key="attendee" v-for="attendee in meeting.attendees">
         <circle-image
           :imageUrl="attendee.picture"
         />
         </div>
-
+      <span class="text-white text-sm ml-2">+ 2 more</span>
       </div>
       <nuxt-link
         to="/meeting/1"

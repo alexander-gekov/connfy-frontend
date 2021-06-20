@@ -1,11 +1,11 @@
 <template>
   <div>
     <Title class="py-3" pageTitle="Open meetings" />
-    <div class="max-w-4xl mx-auto pb-10">
+    <div class="max-w-4xl mx-auto px-5">
       <h3 class="text-xl pb-1">
         <font-awesome-icon :icon="['far', 'map']" /> Tech campus
       </h3>
-      <div v-for="meeting in openMeetings">
+      <div :key="meeting" v-for="meeting in openMeetings">
         <open-meeting-card :meeting="meeting" class="mb-5"></open-meeting-card>
       </div>
     </div>
