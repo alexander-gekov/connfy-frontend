@@ -7,6 +7,7 @@
     "date": "2021-06-28",
     "start_time": "10:00",
     "end_time": "11:00",
+    "startingLocation": "Rachelsmolen 1",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -29,7 +30,7 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "2.5",
       "duration": "",
       "waypoints": [
         {
@@ -55,6 +56,7 @@
     "date": "2021-06-23",
     "start_time": "12:00",
     "end_time": "13:00",
+    "startingLocation": "Tech Campus 1",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -71,7 +73,7 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.4",
       "duration": "",
       "waypoints": [
         {
@@ -97,6 +99,7 @@
     "date": "2021-06-24",
     "start_time": "15:00",
     "end_time": "16:00",
+    "startingLocation": "18 Septemberplein",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -113,7 +116,7 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.0",
       "duration": "",
       "waypoints": [
         {
@@ -139,6 +142,7 @@
     "date": "2021-06-22",
     "start_time": "17:00",
     "end_time": "18:00",
+    "startingLocation": "Kerkstraat 12",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -161,7 +165,7 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.7",
       "duration": "",
       "waypoints": [
         {

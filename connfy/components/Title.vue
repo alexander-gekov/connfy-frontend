@@ -13,7 +13,6 @@
         bg-gray-200
         absolute
         left-0
-        absolute
         top-2
       "
     >

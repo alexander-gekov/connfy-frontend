@@ -2,7 +2,7 @@
   <div>
     <Title class="py-3" pageTitle="Meeting details" />
     <div class="max-w-4xl mx-auto p-5">
-      <div class="font-bold text-2xl">{{ meeting.title}}</div>
+      <div class="font-bold text-2xl">{{ meeting.title }}</div>
       <div class="text-xl mt-5">Description/Agenda</div>
       <p class="text-gray-600">
         {{ meeting.description }}
@@ -72,39 +72,30 @@
         Google Maps
       </button>
       <div class="flex flex-col mt-5">
-        <div class="flex py-1 justify-between items-center">
-          <div class="flex items-center">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
-            />
-            <div class="text-lg ml-5">John Doe</div>
+        <div
+          v-for="attendee in meeting.attendees"
+          :key="attendee.name"
+          class="flex flex-col"
+        >
+          <div class="flex py-1 justify-between items-center">
+            <div class="flex items-center">
+              <circle-image :imageUrl="attendee.picture" />
+              <div class="text-lg ml-5">{{ attendee.name }}</div>
+            </div>
+            <div :class="attendee.accepted ? 'text-green-500' : 'text-red-500'">
+              {{ attendee.accepted ? 'Accepted' : 'Declined' }}
+            </div>
           </div>
-          <div class="text-green-500">Accepted</div>
-        </div>
-        <hr />
-        <div class="flex py-1 justify-between items-center">
-          <div class="flex items-center">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/men/49.jpg"
-            />
-            <div class="text-lg ml-5">Why Tho</div>
-          </div>
-          <div class="text-green-500">Accepted</div>
-        </div>
-        <hr />
-        <div class="flex py-1 justify-between items-center">
-          <div class="flex items-center">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/women/87.jpg"
-            />
-            <div class="text-lg ml-5">Jessica Alba</div>
-          </div>
-          <div class="text-red-500">Declined</div>
+          <hr />
         </div>
       </div>
       <div id="map-wrap" style="height: 200px">
         <no-ssr>
-          <l-map class="z-10" :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
+          <l-map
+            class="z-10"
+            :zoom="16"
+            :center="[51.411164486772115, 5.457615316908337]"
+          >
             <l-tile-layer
               url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
             ></l-tile-layer>
@@ -123,9 +114,9 @@ import MeetingCard from '~/components/MeetingCard.vue'
 
 export default Vue.extend({
   components: { MeetingCard, CircleImage },
-  data () {
+  data() {
     return {
-      meeting: []
+      meeting: [],
     }
   },
   methods: {
@@ -138,13 +129,12 @@ export default Vue.extend({
   },
   computed: {
     meeting() {
-      console.log( this.$route.params.id)
-    }
+      console.log(this.$route.params.id)
+    },
   },
   created() {
-    this.meeting = this.$store.getters.getById(this.$route.params.id);
-    console.log("Meeting " + this.meeting)
-
-  }
+    this.meeting = this.$store.getters.getById(this.$route.params.id)
+    console.log('Meeting ' + this.meeting)
+  },
 })
 </script>

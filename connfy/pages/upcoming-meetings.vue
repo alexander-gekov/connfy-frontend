@@ -3,7 +3,7 @@
     <Title id="v-step-0" class="py-3" pageTitle="Upcoming meetings" />
     <div class="max-w-4xl mx-auto px-5">
       <nuxt-link
-      id="v-step-1"
+        id="v-step-1"
         to="/meeting/create"
         class="
           flex
@@ -30,7 +30,7 @@
           ></path></svg
         >Add new meeting</nuxt-link
       >
-      <div :key="meeting" v-for="meeting in meetings">
+      <div :key="meeting.id" v-for="meeting in meetings">
         <meeting-card :meeting="meeting" class="mb-5" />
       </div>
     </div>
@@ -45,26 +45,25 @@ export default Vue.extend({
   components: { MeetingCard },
   created() {
     this.$OneSignal.push(() => {
-    this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
-    if (isEnabled) {
-      console.log('Push notifications are enabled!')
-    } else {
-      console.log('Push notifications are not enabled yet.')
-    }
-  })
-})
+      this.$OneSignal.isPushNotificationsEnabled((isEnabled) => {
+        if (isEnabled) {
+          console.log('Push notifications are enabled!')
+        } else {
+          console.log('Push notifications are not enabled yet.')
+        }
+      })
+    })
   },
   computed: {
     getPreviousPage() {
       return this.$store.state.previousPage
     },
-    meetings () {
+    meetings() {
       return this.$store.state.meetings[0]
-    }
+    },
   },
-  data (){
-    return{
-    }
+  data() {
+    return {}
   },
 })
 </script>

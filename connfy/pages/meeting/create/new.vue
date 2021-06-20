@@ -15,22 +15,10 @@
           name="description"
           placeholder="Subject of meeting"
         />
-        <formulate-input
-          type="date"
-          name="date"
-          label="Date"
-        />
-        <div class="flex flex row">
-        <formulate-input
-          type="time"
-          name="start_time"
-          label="Start Time"
-        />
-        <formulate-input
-          type="time"
-          name="end_time"
-          label="End Time"
-        />
+        <formulate-input type="date" name="date" label="Date" />
+        <div class="flex row">
+          <formulate-input type="time" name="start_time" label="Start Time" />
+          <formulate-input type="time" name="end_time" label="End Time" />
         </div>
         <formulate-input
           type="text"
@@ -87,7 +75,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 export default Vue.extend({
   created() {
@@ -99,41 +87,44 @@ export default Vue.extend({
   data() {
     return {
       formData: {
-        id:4,
+        id: 4,
         title: '',
         description: '',
         date: '',
-        attendees: [{
-          name: "Aleksandar Gekov",
-          picture: "https://randomuser.me/api/portraits/men/46.jpg",
-          email: "aleksandar.gekov@fake-email.com",
-          accepted: true
-        },
+        attendees: [
           {
-            name: "Viktor Naydenov",
-            picture: "https://randomuser.me/api/portraits/men/64.jpg",
-            email: "viktor.naydneov@fake-email.com",
-            accepted: true
+            name: 'Aleksandar Gekov',
+            picture: 'https://randomuser.me/api/portraits/men/46.jpg',
+            email: 'aleksandar.gekov@fake-email.com',
+            accepted: true,
           },
           {
-            name: "Yulia Krusharska",
-            picture: "https://randomuser.me/api/portraits/women/46.jpg",
-            email: "yulia.krusharksa@fake-email.com",
-            accepted: false
-          }],
+            name: 'Viktor Naydenov',
+            picture: 'https://randomuser.me/api/portraits/men/64.jpg',
+            email: 'viktor.naydneov@fake-email.com',
+            accepted: true,
+          },
+          {
+            name: 'Yulia Krusharska',
+            picture: 'https://randomuser.me/api/portraits/women/46.jpg',
+            email: 'yulia.krusharksa@fake-email.com',
+            accepted: false,
+          },
+        ],
         start_time: '',
         end_time: '',
         startingLocation: '',
         // TODO: add Route model
         route: {},
-        coordinates: {} as any,
-        notes: Object
+        coordinates: {},
+        notes: [],
       },
     }
   },
   methods: {
     submitData() {
       this.$store.commit('add', this.formData)
+      this.$router.push('/upcoming-meetings')
     },
   },
 })
