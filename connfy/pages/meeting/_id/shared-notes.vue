@@ -24,7 +24,12 @@
           "
         >
           <div v-if="!topic.showAll">
-            <draggable class="list-group" :list="topic.notes" group="notes">
+            <draggable
+              class="list-group"
+              :list="topic.notes"
+              group="notes"
+              handle=".handle"
+            >
               <div
                 class="flex flex-col"
                 v-for="(note, index) in topic.notes"
@@ -43,9 +48,27 @@
                       text-black
                       flex
                       justify-between
+                      items-center
                       mb-2
                     "
                   >
+                    <div class="handle mr-2">
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                        ></path>
+                      </svg>
+                    </div>
+
                     <div class="">{{ note.message }}</div>
                     <div class="p-2 flex flex-col">
                       <div
@@ -137,7 +160,12 @@
             </draggable>
           </div>
           <div v-if="topic.showAll">
-            <draggable class="list-group" :list="topic.notes" group="notes">
+            <draggable
+              class="list-group"
+              :list="topic.notes"
+              group="notes"
+              handle=".handle"
+            >
               <div
                 class="flex flex-col"
                 v-for="note in topic.notes"
@@ -158,6 +186,22 @@
                     mb-2
                   "
                 >
+                  <div class="handle mr-2">
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                      ></path>
+                    </svg>
+                  </div>
                   <div class="">{{ note.message }}</div>
                   <div class="p-2 flex flex-col">
                     <div
@@ -271,7 +315,12 @@
           </div>
         </div>
       </div>
-      <draggable class="list-group" :list="notes" group="notes">
+      <draggable
+        class="list-group"
+        :list="notes"
+        group="notes"
+        handle=".handle"
+      >
         <div v-for="note in notes" :key="note.id" class="flex flex-col mb-5">
           <div class="text-sm text-black ml-4">Simon Cowell</div>
           <div
@@ -284,8 +333,25 @@
               text-black
               flex
               justify-between
+              items-center
             "
           >
+            <div class="handle mr-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                ></path>
+              </svg>
+            </div>
             <div class="">{{ note.message }}</div>
             <div class="p-2 flex flex-col">
               <div
