@@ -26,6 +26,7 @@ export default {
     { src: '~plugins/vue-tour', ssr: false },
     { src: '~plugins/vue-geolocation', ssr: false },
     { src: '~plugins/vue-tooltip', ssr: false },
+    { src: '~plugins/vue-draggable', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -69,6 +70,10 @@ export default {
   server: {
     port: 8080, // default: 3000
     host: '0.0.0.0', // default: localhost
+  },
+
+  env: {
+    weatherApi: process.env.WEATHER_API_KEY,
   },
 
   oneSignal: {

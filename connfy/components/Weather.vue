@@ -52,14 +52,19 @@ export default {
       },
     }
   },
+  computed: {
+    weatherApi() {
+      return process.env.WEATHER_API_KEY
+    },
+  },
   created() {
+    console.log(process.env.WEATHER_API_KEY)
     axios
       .post(
         `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&appid=${process.env.WEATHER_API_KEY}&units=metric`
       )
       .then((response) => {
         this.weather = response.data
-        console.log(response.data)
       })
   },
   computed: {
