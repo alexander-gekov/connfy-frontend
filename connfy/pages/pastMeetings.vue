@@ -20,11 +20,11 @@
         <div class="mx-5">
           <div class="flex justify-between">
             <h1 class="text-xl font-bold font-montserrat">
-              Brainstorm meeting
+              {{ currentMeeting.title }}
             </h1>
           </div>
           <div class="flex">
-            <span class="text-light">10:00 - 11:00</span>
+            <span class="text-light">{{ currentMeeting.start_time}} - {{currentMeeting.end_time}}</span>
           </div>
           <div class="flex justify-between items-baseline m-2 pb-2">
             <div class="attendees flex self-end">
@@ -42,7 +42,7 @@
               />
             </div>
             <nuxt-link
-              to="/meeting/1"
+              :to="'/meeting/' + currentMeeting.id"
               class="
                 bg-orange-light
                 transform
@@ -65,69 +65,39 @@
 
       <h3 class="text-lg font-bold p-3">My groups:</h3>
 
-      <nuxt-link to="/meetingChannel/1"
+      <nuxt-link to="/meetingChannel/0"
         ><div class="rounded-xl bg-blue-300 shadow-lg p-3 mb-4">
-          <h3 class="text-lg">Staff meeting</h3>
+          <h3 class="text-lg">{{ channels[0].title }}</h3>
           <div class="attendees flex self-end">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
-            />
+            <div :key="attendee" v-for="attendee in channels[1].attendees">
+              <circle-image
+                :imageUrl="attendee.picture"
+              />
+            </div>
           </div></div
       ></nuxt-link>
 
       <nuxt-link to="/meetingChannel/1"
         ><div class="rounded-xl bg-yellow-300 shadow-lg p-3 mb-4">
-          <h3 class="text-lg">Team meeting</h3>
+          <h3 class="text-lg">{{ channels[1].title }}</h3>
           <div class="attendees flex self-end">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
-            />
+            <div :key="attendee" v-for="attendee in channels[0].attendees">
+              <circle-image
+                :imageUrl="attendee.picture"
+              />
+            </div>
           </div></div
       ></nuxt-link>
 
-      <nuxt-link to="/meetingChannel/1"
+      <nuxt-link to="/meetingChannel/2"
         ><div class="rounded-xl bg-blue-200 shadow-lg p-3 mb-4">
-          <h3 class="text-lg">Group meeting</h3>
+          <h3 class="text-lg">{{ channels[2].title }}</h3>
           <div class="attendees flex self-end">
-            <circle-image
-              imageUrl="https://randomuser.me/api/portraits/men/46.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/47.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/women/79.jpg"
-            />
-            <circle-image
-              class="-ml-3"
-              imageUrl="https://randomuser.me/api/portraits/men/86.jpg"
-            />
+            <div :key="attendee" v-for="attendee in channels[2].attendees">
+              <circle-image
+                :imageUrl="attendee.picture"
+              />
+            </div>
           </div></div
       ></nuxt-link>
     </div>
@@ -144,6 +114,8 @@ export default {
       date: '',
       days: [],
       isHidden: true,
+      meetings: [],
+      currentMeeting: {},
     }
   },
   computed: {
@@ -156,6 +128,12 @@ export default {
         dates: date,
       }))
     },
+    channels() {
+      return this.$store.state.channels.channels[0]
+    }
+
+
+
   },
   methods: {
     onDayClick(day) {
@@ -164,35 +142,20 @@ export default {
       if (idx >= 0) {
         // this.days.splice(idx, 1);
         // Show meeting
+        this.currentMeeting = this.meetings.find(meeting => meeting.date === day.id)
         this.isHidden = false
         let dayString = String(day.date).split(' ')
         this.date = dayString[0] + ' ' + dayString[1] + ' ' + dayString[2]
       } else {
         // Do nothing or add meeting if the date is in the future
-        this.days.push({
-          id: day.id,
-          date: day.date,
-        })
       }
     },
   },
+
   created() {
-    const day = {
-      id: '2021-06-03',
-      date: 'Thu Jun 03 2021 00:00:00 GMT+0200 (Central European Summer Time)',
-    }
-    const day2 = {
-      id: '2021-06-11',
-      date: 'Fri Jun 11 2021 00:00:00 GMT+0200 (Central European Summer Time)',
-    }
-    this.days.push({
-      id: day.id,
-      date: day.date,
-    })
-    this.days.push({
-      id: day2.id,
-      date: day2.date,
-    })
+    this.meetings = this.$store.state.meetings[0]
+    this.meetings.forEach(meeting => this.days.push({id: meeting.date, date: meeting.date}))
+
   },
 }
 </script>

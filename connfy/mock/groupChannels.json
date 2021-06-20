@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "title": "Staff meeting",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Viktor Naydenov",
+        "picture": "https://randomuser.me/api/portraits/men/64.jpg",
+        "email": "viktor.naydneov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "meetings": [],
+    "topics": []
+  },
+  {
+    "id": 1,
+    "title": "Team meeting",
+    "attendees": [
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      },
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      }
+    ],
+    "meetings": [],
+    "topics": []
+  },
+  {
+    "id": 2,
+    "title": "Stand up meeting",
+    "attendees": [
+      {
+        "name": "Aleksandar Gekov",
+        "picture": "https://randomuser.me/api/portraits/men/46.jpg",
+        "email": "aleksandar.gekov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Viktor Naydenov",
+        "picture": "https://randomuser.me/api/portraits/men/64.jpg",
+        "email": "viktor.naydneov@fake-email.com",
+        "accepted": true
+      },
+      {
+        "name": "Yulia Krusharska",
+        "picture": "https://randomuser.me/api/portraits/women/46.jpg",
+        "email": "yulia.krusharksa@fake-email.com",
+        "accepted": false
+      }
+    ],
+    "meetings": [],
+    "topics": []
+  }
+]
