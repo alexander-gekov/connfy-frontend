@@ -5,7 +5,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <Nuxt class="bg-gray-100 h-screen font-montserrat mx-auto mb-24" />
+    <Nuxt class="bg-gray-100 h-screen font-montserrat mx-auto" />
     <!-- <NavigationBar class="footer fixed w-full bottom-0 left-0 z-10 bg-white" /> -->
   </div>
 </template>

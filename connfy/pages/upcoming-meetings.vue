@@ -33,6 +33,7 @@
     <meeting-card :meeting="meeting" class="mb-5" />
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">

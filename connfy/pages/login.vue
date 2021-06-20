@@ -1,8 +1,8 @@
 <template>
-<div class="flex flex-col justify-center max-w-4xl mx-auto px-5">
+<div class="flex flex-col justify-center max-w-4xl mx-auto px-5 bg-white">
 
   <div class="mb-4 mx-auto">
-      <img class="relative inset-0 w-48 h-48 object-cover shadow-lg rounded-lg" src="../static/icon.png">
+      <img class="relative inset-0 w-48 h-48 object-cover rounded-lg" src="../static/icon.png">
   </div>
   <div class="mb-4">
     <label class="block text-md font-light mb-2" for="username">Username</label>

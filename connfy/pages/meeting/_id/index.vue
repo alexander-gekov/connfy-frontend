@@ -105,7 +105,7 @@
       </div>
       <div id="map-wrap" style="height: 200px">
         <no-ssr>
-          <l-map :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
+          <l-map class="z-10" :zoom="16" :center="[51.411164486772115, 5.457615316908337]">
             <l-tile-layer
               url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
             ></l-tile-layer>
