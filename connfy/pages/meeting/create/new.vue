@@ -6,7 +6,7 @@
         <formulate-input
           type="text"
           label="Subject"
-          name="subject"
+          name="title"
           placeholder="Subject of meeting"
         />
         <formulate-input
@@ -15,16 +15,11 @@
           name="description"
           placeholder="Subject of meeting"
         />
-        <formulate-input
-          type="datetime-local"
-          name="startTime"
-          label="Start Time"
-        />
-        <formulate-input
-          type="datetime-local"
-          name="endTime"
-          label="End Time"
-        />
+        <formulate-input type="date" name="date" label="Date" />
+        <div class="flex row">
+          <formulate-input type="time" name="start_time" label="Start Time" />
+          <formulate-input type="time" name="end_time" label="End Time" />
+        </div>
         <formulate-input
           type="text"
           label="Starting Location"
@@ -71,6 +66,7 @@
             focus:outline-none
             m-3
           "
+          v-on:click="submitData"
         >
           Create meeting
         </button>
@@ -79,7 +75,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 export default Vue.extend({
   created() {
@@ -91,20 +87,45 @@ export default Vue.extend({
   data() {
     return {
       formData: {
-        subject: '',
+        id: 4,
+        title: '',
         description: '',
-        participants: [],
-        startTime: '',
-        endTime: '',
+        date: '',
+        attendees: [
+          {
+            name: 'Aleksandar Gekov',
+            picture: 'https://randomuser.me/api/portraits/men/46.jpg',
+            email: 'aleksandar.gekov@fake-email.com',
+            accepted: true,
+          },
+          {
+            name: 'Viktor Naydenov',
+            picture: 'https://randomuser.me/api/portraits/men/64.jpg',
+            email: 'viktor.naydneov@fake-email.com',
+            accepted: true,
+          },
+          {
+            name: 'Yulia Krusharska',
+            picture: 'https://randomuser.me/api/portraits/women/46.jpg',
+            email: 'yulia.krusharksa@fake-email.com',
+            accepted: false,
+          },
+        ],
+        start_time: '',
+        end_time: '',
         startingLocation: '',
         // TODO: add Route model
         route: {},
-        coordinates: {} as any,
+        coordinates: {},
+        notes: [],
       },
     }
   },
   methods: {
-    submitData() {},
+    submitData() {
+      this.$store.commit('add', this.formData)
+      this.$router.push('/upcoming-meetings')
+    },
   },
 })
 </script>

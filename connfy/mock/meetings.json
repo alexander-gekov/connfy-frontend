@@ -1,9 +1,14 @@
-[{
+[
+
+   {
+     "id": 0,
     "title": "Brainstorm meeting",
     "description": "In this meeting we have to brainstorm ideas about Connfy",
     "date": "2021-06-28",
+     "date_name": "28 June, 2021",
     "start_time": "10:00",
     "end_time": "11:00",
+    "startingLocation": "Rachelsmolen 1",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -26,20 +31,61 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "2.5",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
-    "notes": "Object"
-},
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "This is a basic mobile chat layout, build with tailwind css"
+      },
+      {
+        "id": 1,
+        "showButtons": false,
+        "message":
+          "Text 2 fdsfdsfsd"
+      }
+    ],
+    "sharedNotes": [],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming",
+        "notes": [{
+          "id": 0,
+          "showButtons": false,
+          "message":
+            "This is top secret text"
+        }],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
+  },
   {
+    "id": 1,
     "title": "Next Sprint planning",
     "description": "Discuss the features that will be completed by the end of the next sprint.",
-    "date": "2021-06-23",
+    "date": "2021-06-24",
+    "date_name": "24 June, 2021",
     "start_time": "12:00",
     "end_time": "13:00",
+    "startingLocation": "Tech Campus 1",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -56,20 +102,55 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.4",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 2"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   },
   {
+    "id": 2,
     "title": "Discuss transition to new office.",
     "description": "Set dates to move all tech devices and furniture.",
-    "date": "2021-06-24",
+    "date": "2021-06-23",
+    "date_name": "23 June, 2021",
     "start_time": "15:00",
     "end_time": "16:00",
+    "startingLocation": "18 Septemberplein",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -86,20 +167,55 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.0",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 3"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text meeting 3"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming meeting 3",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   },
   {
+    "id": 3,
     "title": "Client meeting",
     "description": "Discuss what will be presented during the client meeting this Friday.",
-    "date": "2021-06-22",
+    "date": "2021-06-18",
+    "date_name": "18 June, 2021",
     "start_time": "17:00",
     "end_time": "18:00",
+    "startingLocation": "Kerkstraat 12",
     "attendees": [
       {
         "name": "Aleksandar Gekov",
@@ -122,12 +238,46 @@
     ],
     "route": {
       "title": "",
-      "length": "",
+      "distance": "1.7",
       "duration": "",
-      "waypoints": [{"lng":"5.23423423","lat":"40.2131241"},
-        {"lng":"5.2341536","lat":"40.21323556"},
-        {"lng":"5.23423423","lat":"40.2131241"}]
+      "waypoints": [
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        },
+        {
+          "lng": "5.2341536",
+          "lat": "40.21323556"
+        },
+        {
+          "lng": "5.23423423",
+          "lat": "40.2131241"
+        }
+      ]
     },
-    "notes": "Object"
+    "privateNotes" : [
+      {
+        "id": 0,
+        "showButtons": false,
+        "message":
+          "Private note in meeting 4"
+      }
+    ],
+    "sharedNotes": [{
+      "id": 0,
+      "showButtons": false,
+      "message":
+        "This is top secret text meeting 4"
+    }],
+    "sharedTopics": [
+      {
+        "name": "Brainstorming meeting 4",
+        "notes": [],
+        "showEdit": false,
+        "showAll": true
+      }
+    ]
   }
 ]
+
+
