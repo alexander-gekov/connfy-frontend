@@ -2,7 +2,7 @@
 <div>
   <Title class="py-3" pageTitle="Meeting channel" />
   <div class="container flex flex-col md:w-1/2">
-    <div class="flex flex-row justify-between m-5">
+    <div class="flex flex-row justify-between m-5 mt-0">
       <h2 class="font-bold text-lg">Topics:</h2>
       <h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2>
     </div>
@@ -16,7 +16,7 @@
 
     <div class="flex flex-row justify-between m-5">
       <button v-on:click="prev"><h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-left']" /></h2></button>
-      <h2>{{  currentMeeting.date }}</h2>
+      <h2>{{  currentMeeting.date_name }}</h2>
       <button v-on:click="next"><h2 class="icon"><font-awesome-icon :icon="['fas', 'angle-right']" /></h2></button>
     </div>
 
@@ -69,25 +69,14 @@ export default {
   data() {
     return {
       topics: [{name: "Vacation", numberOfNotes: 6}, {name: "Sprint", numberOfNotes: 3},{name: "Salary", numberOfNotes: 8}],
-      meetings: [ {
-        id: 0,
-        date: "18 May, 2021",
-        title: "Next Sprint planning.",
-        description: "Discuss the features that will be completed by the end of the next sprint."
-      },{
-        id: 1,
-        date: "15 May, 2021",
-        title: "Discuss transition to new office.",
-        description: "Set dates to move all tech devices and furniture."
-      }, {
-      id: 2,
-        date: "13 May, 2021",
-        title: "Client meeting.",
-        description: "Discuss what will be presented during the client meeting this Friday."
-    },],
       currentMeeting: {}
     }
 
+  },
+  computed: {
+    meetings() {
+      return this.$store.state.meetings[0]
+    }
   },
   created() {
     this.currentMeeting = this.meetings[0]
