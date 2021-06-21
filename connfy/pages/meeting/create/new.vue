@@ -124,7 +124,7 @@ export default Vue.extend({
   methods: {
     submitData() {
       this.$store.commit('add', this.formData)
-      this.$router.push('/upcoming-meetings')
+      this.$router.push('/')
     },
   },
 })

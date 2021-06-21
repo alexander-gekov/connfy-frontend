@@ -11,16 +11,16 @@ export const mutations = {
       ...meeting,
       attendees: [
         {
-          name: 'Aleksandar Gekov',
-          picture: 'https://randomuser.me/api/portraits/men/46.jpg',
-          email: 'aleksandar.gekov@fake-email.com',
-          accepted: true,
-        },
-        {
           name: 'Yulia Krusharska',
           picture: 'https://randomuser.me/api/portraits/women/46.jpg',
           email: 'yulia.krusharksa@fake-email.com',
-          accepted: false,
+          accepted: true,
+        },
+        {
+          name: 'Yordan Radushev',
+          picture: 'https://randomuser.me/api/portraits/men/48.jpg',
+          email: 'yordan-radushev@fake-email.com',
+          accepted: true,
         },
       ],
       route: {

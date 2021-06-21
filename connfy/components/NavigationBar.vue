@@ -131,7 +131,7 @@
         id="v-step-5"
         class="block px-3 py-1 rounded-md text-base font-medium mx-auto"
       >
-        <NuxtLink to="/upcoming-meetings"
+        <NuxtLink to="/"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 64 64"
